@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7559b5f3-9686-4100-b0b9-11c37b0b3e2f" name="更改" comment="B&#10;Merge branch 'main' of github.com:Bnz277/python&#10;the commit." />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Bnz277&quot;
+  }
+}</component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="f045e706-e98e-4b6b-ad98-4c275ea17870" />
+  </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Bnz277/python.git&quot;,
+    &quot;accountId&quot;: &quot;f045e706-e98e-4b6b-ad98-4c275ea17870&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2ua9KfnAjMZTCVBiTpA0FAZS00R" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Python.__init__.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "vcs.Git",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-PY-242.21829.153" />
+        <option value="bundled-python-sdk-464836ebc622-b74155a9e76b-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.21829.153" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\27734\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="7559b5f3-9686-4100-b0b9-11c37b0b3e2f" name="更改" comment="" />
+      <created>1742475755742</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1742475755742</updated>
+      <workItem from="1742475756769" duration="85000" />
+      <workItem from="1742475849551" duration="113000" />
+      <workItem from="1742475969667" duration="136000" />
+      <workItem from="1742476112430" duration="1088000" />
+      <workItem from="1742481135154" duration="1835000" />
+      <workItem from="1742482991088" duration="195000" />
+      <workItem from="1742483196491" duration="692000" />
+      <workItem from="1742483901816" duration="386000" />
+      <workItem from="1742484433520" duration="1156000" />
+      <workItem from="1742485603803" duration="697000" />
+    </task>
+    <task id="LOCAL-00001" summary="2025/3/20 21:09">
+      <option name="closed" value="true" />
+      <created>1742476189855</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1742476189855</updated>
+    </task>
+    <task id="LOCAL-00002" summary="2025/3/20 21:20">
+      <option name="closed" value="true" />
+      <created>1742484537493</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1742484537493</updated>
+    </task>
+    <task id="LOCAL-00003" summary="2025/3/20 21:20">
+      <option name="closed" value="true" />
+      <created>1742485667920</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1742485667920</updated>
+    </task>
+    <task id="LOCAL-00004" summary="B&#10;Merge branch 'main' of github.com:Bnz277/python&#10;the commit.">
+      <option name="closed" value="true" />
+      <created>1742486185960</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1742486185960</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Merge remote-tracking branch 'python/master'" />
+    <MESSAGE value="2025/3/20 21:09" />
+    <MESSAGE value="2025/3/20 21:20" />
+    <MESSAGE value="B&#10;Merge branch 'main' of github.com:Bnz277/python&#10;the commit." />
+    <option name="LAST_COMMIT_MESSAGE" value="B&#10;Merge branch 'main' of github.com:Bnz277/python&#10;the commit." />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/main$__init__.coverage" NAME="__init__ 覆盖结果" MODIFIED="1742485640828" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/实验1_Python的应用及图像的基本操作" />
+  </component>
+</project>
