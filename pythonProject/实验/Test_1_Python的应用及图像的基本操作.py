@@ -2,6 +2,8 @@ from skimage import io, transform
 import numpy as np
 import matplotlib.pyplot as plt
 
+# 你的代码逻辑...
+
 # 读取图像
 def load_image(path, as_gray=False):
     return io.imread(path, as_gray=as_gray)
@@ -42,8 +44,8 @@ def power_transform(image, power):
 # 主程序
 if __name__ == "__main__":
     # 加载图像
-    image = load_image('your_image_path_here.jpg', as_gray=True)
-    another_image = load_image('another_image_path_here.jpg', as_gray=True)
+    image = load_image('D:\\Desktop\\Python\\数字图像处理\\pythonProject\\实验\\Picture\\01.jpg', as_gray=True)
+    another_image = load_image('D:\\Desktop\\Python\\数字图像处理\\pythonProject\\实验\\Picture\\01.jpg', as_gray=True)
 
     # 获取并打印图像信息
     get_image_info(image)
