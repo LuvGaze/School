@@ -19,11 +19,11 @@ labels = np.zeros([rows, cols])
 for i in range(rows):
     for j in range(cols):
         if grayimg[i, j] < 0.4:
-            labels[i, j] = 0
-        elif grayimg[i, j] < 0.8:
             labels[i, j] = 1
-        else:
+        elif grayimg[i, j] < 0.8:
             labels[i, j] = 2
+        else:
+            labels[i, j] = 3
 psdimg = color.label2rgb(labels)  # 不同的label采用不同的颜色
 
 # 第二部分：伪彩色变换
