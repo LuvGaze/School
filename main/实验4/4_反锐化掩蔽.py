@@ -48,6 +48,6 @@ plt.imshow(img_enhance, cmap='gray')
 plt.axis('off')
 plt.title('锐化增强')
 
-plt.savefig('反锐化掩蔽.tif')
+#   plt.savefig('反锐化掩蔽.tif')
 
 plt.show()

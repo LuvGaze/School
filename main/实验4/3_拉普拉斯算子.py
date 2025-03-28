@@ -10,7 +10,7 @@ from skimage import io
 img = io.imread('Picture.jpg', as_gray=True)
 
 # Laplace算子
-img_laplace = filters.laplace(img, ksize=3, mask=None)
+img_laplace = filters.laplace(img, ksize=50, mask=None)
 img_enhance = img + img_laplace
 
 # 显示图像
