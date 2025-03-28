@@ -18,7 +18,7 @@ def corre12d(img, window):
 img = io.imread('Picture.jpg', as_gray=True)
 
 # 3*3盒状滤波模板
-window = np.ones((3, 3)) / (3 ** 2)
+window = np.ones((3, 3)) / (5 ** 2)
 img_blur = corre12d(img, window)
 
 img_edge = img - img_blur
@@ -48,6 +48,6 @@ plt.imshow(img_enhance, cmap='gray')
 plt.axis('off')
 plt.title('锐化增强')
 
-#   plt.savefig('反锐化掩蔽.tif')
+plt.savefig('反锐化掩蔽.tif')
 
 plt.show()

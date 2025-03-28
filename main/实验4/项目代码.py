@@ -99,7 +99,7 @@ plt.title('锐化增强')
 
 # ========================================
 # 反锐化掩蔽
-window = np.ones((3, 3)) / (3 ** 2)
+window = np.ones((3, 3)) / (5 ** 2)
 img_blur = corre12d(img, window)
 img_edge = img - img_blur
 img_enhance_box = img + img_edge

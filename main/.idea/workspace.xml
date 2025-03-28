@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7559b5f3-9686-4100-b0b9-11c37b0b3e2f" name="更改" comment="2025/3/21  17:09">
-      <change afterPath="$PROJECT_DIR$/实验4/1_罗伯特算子.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/实验4/2_sobel算子.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/实验4/3_拉普拉斯算子.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/实验4/4_反锐化掩蔽.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/实验4/Picture.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/实验4/项目代码.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/实验4/4_反锐化掩蔽.py" beforeDir="false" afterPath="$PROJECT_DIR$/实验4/4_反锐化掩蔽.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/实验4/项目代码.py" beforeDir="false" afterPath="$PROJECT_DIR$/实验4/项目代码.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,38 +56,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Python.1.executor": "Run",
-    "Python.1_盒状滤波.executor": "Run",
-    "Python.1_罗伯特算子.executor": "Run",
-    "Python.2.executor": "Run",
-    "Python.2_sobel算子.executor": "Run",
-    "Python.2_高斯平滑滤波.executor": "Run",
-    "Python.2_高斯滤波.executor": "Run",
-    "Python.3.executor": "Run",
-    "Python.3_加降噪.executor": "Run",
-    "Python.3_拉普拉斯算子.executor": "Run",
-    "Python.4.executor": "Run",
-    "Python.4_反锐化掩蔽.executor": "Run",
-    "Python.__init__.executor": "Run",
-    "Python.王琦.executor": "Run",
-    "Python.要求代码.executor": "Run",
-    "Python.谭潇华.executor": "Run",
-    "Python.项目代码.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/Desktop/Python/数字图像处理/main/实验4",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Python.1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.1_盒状滤波.executor&quot;: &quot;Run&quot;,
+    &quot;Python.1_罗伯特算子.executor&quot;: &quot;Run&quot;,
+    &quot;Python.2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.2_sobel算子.executor&quot;: &quot;Run&quot;,
+    &quot;Python.2_高斯平滑滤波.executor&quot;: &quot;Run&quot;,
+    &quot;Python.2_高斯滤波.executor&quot;: &quot;Run&quot;,
+    &quot;Python.3.executor&quot;: &quot;Run&quot;,
+    &quot;Python.3_加降噪.executor&quot;: &quot;Run&quot;,
+    &quot;Python.3_拉普拉斯算子.executor&quot;: &quot;Run&quot;,
+    &quot;Python.4.executor&quot;: &quot;Run&quot;,
+    &quot;Python.4_反锐化掩蔽.executor&quot;: &quot;Run&quot;,
+    &quot;Python.__init__.executor&quot;: &quot;Run&quot;,
+    &quot;Python.王琦.executor&quot;: &quot;Run&quot;,
+    &quot;Python.要求代码.executor&quot;: &quot;Run&quot;,
+    &quot;Python.谭潇华.executor&quot;: &quot;Run&quot;,
+    &quot;Python.项目代码.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Desktop/Python/数字图像处理/main/实验4&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Desktop\Python\数字图像处理\main\实验4" />
@@ -140,7 +136,8 @@
       <workItem from="1743067902945" duration="31000" />
       <workItem from="1743068097165" duration="550000" />
       <workItem from="1743080145655" duration="1305000" />
-      <workItem from="1743150354056" duration="1523000" />
+      <workItem from="1743150354056" duration="3102000" />
+      <workItem from="1743153487765" duration="57000" />
     </task>
     <task id="LOCAL-00001" summary="2025/3/20 21:09">
       <option name="closed" value="true" />
@@ -222,7 +219,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743065671946</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="2025/3/21  17:09">
+      <option name="closed" value="true" />
+      <created>1743152047584</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1743152047584</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -250,15 +255,15 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/main$2.coverage" NAME="2 覆盖结果" MODIFIED="1743150998224" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/实验4" />
-    <SUITE FILE_PATH="coverage/main$3_.coverage" NAME="3_拉普拉斯算子 覆盖结果" MODIFIED="1743151836521" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/实验4" />
-    <SUITE FILE_PATH="coverage/main$2_sobel.coverage" NAME="2_sobel算子 覆盖结果" MODIFIED="1743151828487" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/实验4" />
-    <SUITE FILE_PATH="coverage/main$4_.coverage" NAME="4_反锐化掩蔽 覆盖结果" MODIFIED="1743151842020" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/实验4" />
+    <SUITE FILE_PATH="coverage/main$3_.coverage" NAME="3_拉普拉斯算子 覆盖结果" MODIFIED="1743152987388" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/实验4" />
+    <SUITE FILE_PATH="coverage/main$2_sobel.coverage" NAME="2_sobel算子 覆盖结果" MODIFIED="1743152977078" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/实验4" />
+    <SUITE FILE_PATH="coverage/main$4_.coverage" NAME="4_反锐化掩蔽 覆盖结果" MODIFIED="1743153433705" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/实验4" />
     <SUITE FILE_PATH="coverage/main$2_.coverage" NAME="2_高斯平滑滤波 覆盖结果" MODIFIED="1743066701967" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/实验3_图像的平滑滤波" />
     <SUITE FILE_PATH="coverage/main$1.coverage" NAME="1 覆盖结果" MODIFIED="1743150903603" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/实验4" />
     <SUITE FILE_PATH="coverage/main$3.coverage" NAME="3 覆盖结果" MODIFIED="1743151195308" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/实验4" />
     <SUITE FILE_PATH="coverage/main$__init__.coverage" NAME="__init__ 覆盖结果" MODIFIED="1742545716209" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/实验2_" />
-    <SUITE FILE_PATH="coverage/main$1_.coverage" NAME="1_罗伯特算子 覆盖结果" MODIFIED="1743151821692" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/实验4" />
-    <SUITE FILE_PATH="coverage/main$.coverage" NAME="项目代码 覆盖结果" MODIFIED="1743151880404" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/实验4" />
+    <SUITE FILE_PATH="coverage/main$1_.coverage" NAME="1_罗伯特算子 覆盖结果" MODIFIED="1743153527051" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/实验4" />
+    <SUITE FILE_PATH="coverage/main$.coverage" NAME="项目代码 覆盖结果" MODIFIED="1743153455580" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/实验4" />
     <SUITE FILE_PATH="coverage/main$4.coverage" NAME="4 覆盖结果" MODIFIED="1743151471382" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/实验4" />
   </component>
 </project>
