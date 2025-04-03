@@ -1,5 +1,4 @@
 import math
-
 import numpy as np
 from matplotlib import pyplot as plt
 from skimage import data, color
@@ -31,30 +30,37 @@ L = 255
 
 
 def GetR(gray):
+    gray = float(gray)  # 确保输入是浮点数
     if gray < L / 2:
         return 0
     elif gray > L / 4 * 3:
         return L
     else:
-        return int(4 * gray - 2 * L)
+        value = 4 * gray - 2 * L  # 中间计算使用浮点数
+        return int(np.clip(value, 0, 255))  # 最终结果限制在 [0, 255]
 
 
 def GetG(gray):
+    gray = float(gray)  # 确保输入是浮点数
     if gray < L / 4:
-        return int(4 * gray)
+        value = 4 * gray  # 中间计算使用浮点数
+        return int(np.clip(value, 0, 255))
     elif gray > L / 4 * 3:
-        return int(4 * L - 4 * gray)
+        value = 4 * L - 4 * gray  # 中间计算使用浮点数
+        return int(np.clip(value, 0, 255))
     else:
         return L
 
 
 def GetB(gray):
+    gray = float(gray)  # 确保输入是浮点数
     if gray < L / 4:
         return L
     elif gray > L / 2:
         return 0
     else:
-        return int(2 * L - 4 * gray)
+        value = 2 * L - 4 * gray  # 中间计算使用浮点数
+        return int(np.clip(value, 0, 255))
 
 
 grayimg_255 = (color.rgb2gray(img) * 255).astype(np.uint8)  # 将彩色图像转化为灰度图像并缩放到0-255范围
@@ -63,7 +69,6 @@ for ii in range(img.shape[0]):
     for jj in range(img.shape[1]):
         r, g, b = GetR(grayimg_255[ii, jj]), GetG(grayimg_255[ii, jj]), GetB(grayimg_255[ii, jj])
         colorimg[ii, jj, :] = [r, g, b]
-
 
 # 第三部分：RGB转HSI及分割
 def rgb2hsi(r, g, b):
