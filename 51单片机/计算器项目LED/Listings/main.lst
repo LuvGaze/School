@@ -1,0 +1,94 @@
+C51 COMPILER V9.54   MAIN                                                                  06/20/2024 17:18:59 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: D:\Keil C51\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\mai
+                    -n.lst) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          #include "Delay.h"
+   3          #include "LCD1602.h"
+   4          #include "MatriKey.h"
+   5          void main()
+   6          {
+   7   1              unsigned char KeyNum,d;
+   8   1              int k=0,i=0,g=1,j=0;
+   9   1              long float a=0,b[10];
+  10   1              LCD_Init();
+  11   1              while(1)
+  12   1              {
+  13   2                      KeyNum=MatrixKey();
+  14   2                      if(KeyNum!=16)
+  15   2                      {
+  16   3                              if(KeyNum<10)//输入数据
+  17   3                              {                               
+  18   4                                              a*=10;
+  19   4                                              a+=KeyNum%10;
+  20   4                                              k++;                                                            
+  21   4                                      LCD_ShowXiaoNum(1,g,a);//打印输入数据
+  22   4                                      b[i]=a;
+  23   4                              }
+  24   3                              if(9<KeyNum&&KeyNum<15)//计算符号
+  25   3                              {
+  26   4                                      j++;
+  27   4                                      a=0;//清零输入数据
+  28   4                                      k++;
+  29   4                                      g=k+1;//下一个输入数据的位置
+  30   4                                      if(j>1)//连续输入计算                     
+  31   4                                      {
+  32   5                                              switch (d)
+  33   5                                      {
+  34   6                                              case 10:b[i]=b[i-1]+b[i];break;
+  35   6                                              case 11:b[i]=b[i-1]-b[i];break;
+  36   6                                              case 12:b[i]=b[i-1]*b[i];break;
+  37   6                                              case 13:b[i]=b[i-1]/b[i];break;
+  38   6                                      }                         
+  39   5                                      }
+  40   4                                      i++;
+  41   4                                      d=KeyNum;
+  42   4                                      switch (KeyNum)//打印计算符号
+  43   4                                      {
+  44   5                                              case 10:LCD_ShowString(1,k,"+");break;
+  45   5                                              case 11:LCD_ShowString(1,k,"-");break;
+  46   5                                              case 12:LCD_ShowString(1,k,"*");break;
+  47   5                                              case 13:LCD_ShowString(1,k,"/");break;
+  48   5                                              case 14:LCD_ShowString(1,k,".");break;
+  49   5                                      }
+  50   4                              }
+  51   3                              if(KeyNum==15)//“=”输出
+  52   3                              {
+  53   4                                      k++;
+  54   4                                      LCD_ShowString(1,k,"=");//打印‘=’符号                   
+C51 COMPILER V9.54   MAIN                                                                  06/20/2024 17:18:59 PAGE 2   
+
+  55   4                                      switch (d)
+  56   4                                      {
+  57   5                                              case 10:b[i]=b[i-1]+b[i];break;
+  58   5                                              case 11:b[i]=b[i-1]-b[i];break;
+  59   5                                              case 12:b[i]=b[i-1]*b[i];break;
+  60   5                                              case 13:b[i]=b[i-1]/b[i];break;
+  61   5                                      }                                                        
+  62   4                                      LCD_ShowXiaoNum(2,1,b[i]);//打印计算结果
+  63   4                                      break;
+  64   4                              }
+  65   3                      }
+  66   2              }
+  67   1              while(1);
+  68   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    697    ----
+   CONSTANT SIZE    =     12    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      54
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

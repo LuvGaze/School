@@ -1,0 +1,24 @@
+C51 COMPILER V9.54   STRUCT                                                                06/19/2024 15:45:44 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE STRUCT
+OBJECT MODULE PLACED IN .\Objects\struct.obj
+COMPILER INVOKED BY: D:\Keil C51\C51\BIN\C51.EXE struct.c WARNINGLEVEL(0) OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PR
+                    -INT(.\Listings\struct.lst) OBJECT(.\Objects\struct.obj)
+
+line level    source
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   ----    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

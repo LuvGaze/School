@@ -1,0 +1,366 @@
+C51 COMPILER V9.54   MAIN                                                                  12/22/2024 14:29:31 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: D:\Keil C51\C51\BIN\C51.EXE main.c COMPACT WARNINGLEVEL(0) OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXT
+                    -END PRINT(.\Listings\main.lst) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          #include <Delay.h>
+   3          #include <LCD1602.h>
+   4          #include <MatrixKey.h>
+   5          //#include <math.h>
+   6          #include <string.h>
+   7          
+   8          #define INF 0x3f3f3f3f
+   9          
+  10          sbit Beef = P2^5;
+  11          
+  12          int i,j,k,pos,f=0,lentem,flag;
+  13          int tmp,tmp2=0,borrow=0,len1,len2,carry,len;
+  14          char s1[10]="",s2[10]="";
+  15          int  a[10],b[10],c[20];
+  16          long int x,y,z;
+  17          int  tep[10]={0},temp[10]={0},temp2[10]={0};
+  18          char KeyNumber;                                                                                                                                                 //      记录按键
+  19          int  str_len=0;                                                                                                                                         //      字符串的位置
+  20          char str[20]="";                                                                                                                                                        //      记录整个字符串
+  21          int  symlen=0;                                                                                                                                                  //      符号的位置
+  22          char sym=' ';                                                                                                                                                   //      符号
+  23          
+  24          void Buzzer(unsigned int ms)
+  25          {
+  26   1              unsigned int i;
+  27   1              for(i=0;i<ms*2;i++)
+  28   1              {
+  29   2                      Beef=!Beef;
+  30   2                      Delay(1);
+  31   2              }
+  32   1      }
+  33          
+  34          int max(int a,int b){
+  35   1              if(a>b)return a;
+  36   1              else return b;
+  37   1      }
+  38          
+  39          //将数组设置为0 
+  40          int setZero(int*num,int len){
+  41   1              for(i=0;i<len;i++)
+  42   1                      num[i]=0;
+  43   1      }
+  44          
+  45          //比较两个数组形式数字大小 
+  46          int compare(int*num1,int*num2){
+  47   1              f=0;
+  48   1              for(i=9;num1[i]==0;i--);
+  49   1              for(j=9;num2[j]==0;j--);
+  50   1              if(i<j)return -1;
+  51   1              else if(i>j)return 1;
+  52   1              else{
+  53   2                      for(;i>=0;i--){
+  54   3                              if(num1[i]>num2[i])
+C51 COMPILER V9.54   MAIN                                                                  12/22/2024 14:29:31 PAGE 2   
+
+  55   3                              {
+  56   4                                      f=1;
+  57   4                                      return f;
+  58   4                              }
+  59   3                              else if(num1[i]<num2[i])
+  60   3                              {
+  61   4                                      f=-1;
+  62   4                                      return f;
+  63   4                              }
+  64   3                      }
+  65   2                      return f;
+  66   2              }
+  67   1      }
+  68          
+  69          //将一个数组赋给另一个数组 
+  70          int copy(int*num1,int*num2){
+  71   1              for(i=0;i<20;i++)
+  72   1                      num1[i]=0;
+  73   1              for(i=9;num2[i]==0;i--);
+  74   1              for(j=0;j<=i;j++)
+  75   1                      num1[j]=num2[j];
+  76   1              return i+1;
+  77   1      }
+  78          
+  79          //大数加法 
+  80          void add(char*str1,char*str2){
+  81   1              setZero(a,10);
+  82   1              setZero(b,10);
+  83   1              setZero(c,20);
+  84   1      //      printf("%s + %s = ",str1,str2);
+  85   1                      
+  86   1              carry=0;
+  87   1              len1=strlen(str1),len2=strlen(str2),len=max(len1,len2);
+  88   1              for(i=0;i<len1;i++)
+  89   1                      a[i]=str1[len1-1-i]-'0';
+  90   1              for(i=0;i<len2;i++)
+  91   1                      b[i]=str2[len2-1-i]-'0';
+  92   1              for(i=0;i<len;i++){
+  93   2                      c[i]=(a[i]+b[i]+carry)%10;
+  94   2                      carry=(a[i]+b[i]+carry)/10;
+  95   2              }
+  96   1              
+  97   1      
+  98   1              if(carry!=0)
+  99   1                      c[len++]=1;
+ 100   1      //      LCD_Init();
+ 101   1              for(i=len-1;i>=0;i--)                                                           //      显示结果
+ 102   1                      LCD_ShowNum(2,len-i,c[i],1);
+ 103   1      //              printf("%d",c[i]);
+ 104   1      //      printf("\n");
+ 105   1      }
+ 106          
+ 107          //大数减法 
+ 108          void sub(char*str1,char*str2){
+ 109   1              setZero(a,10);
+ 110   1              setZero(b,10);
+ 111   1              setZero(c,20);
+ 112   1              
+ 113   1              borrow=0;
+ 114   1              len1=strlen(str1),len2=strlen(str2),len=max(len1,len2);
+ 115   1              for(i=0;i<len1;i++)
+ 116   1                      a[i]=str1[len1-1-i]-'0';
+C51 COMPILER V9.54   MAIN                                                                  12/22/2024 14:29:31 PAGE 3   
+
+ 117   1              for(i=0;i<len2;i++)
+ 118   1                      b[i]=str2[len2-1-i]-'0';        
+ 119   1              //初步根据位数判断两数大小  
+ 120   1              if(len2>len1){ 
+ 121   2      //              printf("-");
+ 122   2                      f=1;
+ 123   2                      for(i=0;i<len;i++){
+ 124   3                              c[i]=b[i]-a[i]-borrow;
+ 125   3                              if(c[i]<0){
+ 126   4                                      borrow=1;
+ 127   4                                      c[i]+=10;
+ 128   4                              }
+ 129   3                              else
+ 130   3                                      borrow=0;
+ 131   3                      }
+ 132   2              }
+ 133   1              else{
+ 134   2                      for(i=0;i<len;i++){
+ 135   3                              c[i]=a[i]-b[i]-borrow;
+ 136   3                              if(c[i]<0&&i+1<len){
+ 137   4                                      borrow=1;
+ 138   4                                      c[i]+=10;
+ 139   4                              }
+ 140   3                              else
+ 141   3                                      borrow=0;
+ 142   3                      }
+ 143   2              }
+ 144   1              //如果被减数小于减数，则重新计算，用小减去大数，输出负号 
+ 145   1              if(c[len-1]<0)
+ 146   1              {
+ 147   2      //              printf("-");
+ 148   2                      f=1;
+ 149   2                      for(i=0;i<len;i++){
+ 150   3                              c[i]=b[i]-a[i]-borrow;
+ 151   3                              if(c[i]<0&&i+1<len){
+ 152   4                                      borrow=1;
+ 153   4                                      c[i]+=10;
+ 154   4                              }
+ 155   3                              else
+ 156   3                                      borrow=0;
+ 157   3                      }
+ 158   2              }
+ 159   1              while(c[len-1]==0&&len>1)
+ 160   1                      len--;
+ 161   1      //      LCD_Init();
+ 162   1              if(f==0)                                                                        //      结果为正数
+ 163   1              {
+ 164   2                      for(i=len-1;i>=0;i--)
+ 165   2                              LCD_ShowNum(2,len-i,c[i],1);
+ 166   2              }
+ 167   1              else
+ 168   1              {
+ 169   2                      LCD_ShowChar(2,1,'-');
+ 170   2                      for(i=len-1;i>=0;i--)                                   //      显示结果
+ 171   2                              LCD_ShowNum(2,len-i+1,c[i],1);
+ 172   2              }
+ 173   1      }
+ 174          
+ 175          //大数乘法 
+ 176          void mul(char*str1,char*str2) {
+ 177   1              setZero(a,10);
+ 178   1              setZero(b,10);
+C51 COMPILER V9.54   MAIN                                                                  12/22/2024 14:29:31 PAGE 4   
+
+ 179   1              setZero(c,20);
+ 180   1              
+ 181   1              i,j,k,carry=0,tmp; 
+ 182   1              len1=strlen(str1),len2=strlen(str2);
+ 183   1              for(i=0;i<len1;i++)
+ 184   1                      a[i]=str1[len1-1-i]-'0';
+ 185   1              for(i=0;i<len2;i++)
+ 186   1                      b[i]=str2[len2-1-i]-'0';
+ 187   1              
+ 188   1              for(i=0;i<len1;i++){
+ 189   2                      for(k=i,j=0;j<len2;j++,k++){
+ 190   3                              c[k]+=a[i]*b[j];
+ 191   3                      }
+ 192   2              }
+ 193   1              for(i=0;i<=k;i++) {
+ 194   2                      c[i]+=carry;
+ 195   2                      tmp=c[i];
+ 196   2                      c[i]=tmp%10;
+ 197   2                      carry=tmp/10;
+ 198   2              }
+ 199   1              for(i=k;c[i]==0;i--);
+ 200   1      //      LCD_Init();
+ 201   1              for(;i>=0;i--)                                                          //      显示结果
+ 202   1                      LCD_ShowNum(2,k-i+1,c[i],1);
+ 203   1      }
+ 204          
+ 205          
+ 206          //大数除法 
+ 207          void div(char *str1,char *str2)
+ 208          {
+ 209   1              //两个字符串的长度
+ 210   1              len1=strlen(str1),len2=strlen(str2);
+ 211   1              //被除数小于除数
+ 212   1              if (len1<len2||(len1==len2&&strcmp(s1,s2)==-1))
+ 213   1              {
+ 214   2              //      LCD_Init();
+ 215   2                      LCD_ShowString(2,1,"0");
+ 216   2                      return;
+ 217   2              }
+ 218   1      
+ 219   1              //被除数大于除数
+ 220   1              else
+ 221   1              {
+ 222   2                      x=0;    //被除数 str1
+ 223   2                      y=0;    //除数   str2
+ 224   2                      for(i=0;i<len1;i++)
+ 225   2                      {
+ 226   3                              x =10 * x + str1[i] - 48;
+ 227   3                      }
+ 228   2                      for(i=0;i<len2;i++)
+ 229   2                      {
+ 230   3                              y =10 * y + str2[i] - 48;
+ 231   3                      }
+ 232   2                      z = x / y;
+ 233   2                      i = -1;
+ 234   2                      while(z>0)
+ 235   2                      {
+ 236   3                              i++;
+ 237   3                              c[i] = z%10;
+ 238   3                              z/=10;
+ 239   3                      }
+ 240   2                      k=0;
+C51 COMPILER V9.54   MAIN                                                                  12/22/2024 14:29:31 PAGE 5   
+
+ 241   2      //              LCD_Init();
+ 242   2                      for(;i>=0;i--)                                                  //      显示结果
+ 243   2                      {
+ 244   3                              k++;
+ 245   3                              LCD_ShowNum(2,k,c[i],1);
+ 246   3                      }
+ 247   2              }
+ 248   1      }
+ 249          
+ 250          
+ 251          void Char()                                                                             //      将输入的长字符串分为2个短字符串
+ 252          {
+ 253   1              i=0;
+ 254   1              for(j=0;i<strlen(str);i++,j++)                          //      第一个字符串
+ 255   1              {
+ 256   2                      if(str[i]>='0'&&str[i]<='9')
+ 257   2                      {
+ 258   3                              s1[j]=str[i];
+ 259   3                      }
+ 260   2                      else break;
+ 261   2              }
+ 262   1              i++;
+ 263   1              for(j=0;i<strlen(str);i++,j++)                          //      第二个字符串
+ 264   1              {
+ 265   2                      if(str[i]>='0'&&str[i]<='9')
+ 266   2                      {
+ 267   3                              s2[j]=str[i];
+ 268   3                      }
+ 269   2                      else break;
+ 270   2              }
+ 271   1              if(strlen(str)>strlen(s1)+strlen(s2)+1)         //      判断输入是否正确
+ 272   1              {
+ 273   2              }
+ 274   1              switch(sym)
+ 275   1              {
+ 276   2                      case '+':add(s1,s2);
+ 277   2                              break;
+ 278   2                      case '-':sub(s1,s2);
+ 279   2                              break;
+ 280   2                      case '*':mul(s1,s2);
+ 281   2                              break;
+ 282   2                      case '/':div(s1,s2);
+ 283   2                              break;
+ 284   2              }
+ 285   1      }
+ 286          
+ 287          
+ 288          void main()
+ 289          {
+ 290   1              LCD_Init();
+ 291   1              while(1)
+ 292   1              {
+ 293   2                      KeyNumber = MatrixKey();                                                                                                                //      获取按键
+ 294   2                      if(KeyNumber!='!'&&KeyNumber!='=')                                                                                              //      判断按键
+ 295   2                      {
+ 296   3                                                                                                                                                                      //      字符串中字符初始位置为-1，字符位置加1
+ 297   3                              if(KeyNumber>='0'&&KeyNumber<='9')
+ 298   3                              {
+ 299   4                                      str[str_len]=KeyNumber;str_len++;
+ 300   4                              }
+ 301   3                              else if(KeyNumber=='+'||KeyNumber=='-'||KeyNumber=='*'||KeyNumber=='/')
+ 302   3                              {
+C51 COMPILER V9.54   MAIN                                                                  12/22/2024 14:29:31 PAGE 6   
+
+ 303   4                                      if(str[str_len-1]=='+'||str[str_len-1]=='-'||str[str_len-1]=='*'||str[str_len-1]=='/')
+ 304   4                                      {
+ 305   5                                              str_len--;
+ 306   5                                      }
+ 307   4                                      str[str_len]=KeyNumber;str_len++;
+ 308   4                              }
+ 309   3                              else if(KeyNumber=='C')                                                                                                                                         //      删除
+ 310   3                              {
+ 311   4                                      LCD_Init();
+ 312   4                                      str_len--;
+ 313   4                                      str[str_len]=' ';
+ 314   4                              }
+ 315   3                              for(i=0;i<strlen(str);i++)                                                                                                                                      //      赋符号
+ 316   3                              {
+ 317   4                                      sym = ' ';
+ 318   4                                      if(str[i]=='+'||str[i]=='-'||str[i]=='*'||str[i]=='/')
+ 319   4                                      {
+ 320   5                                              sym=str[i];
+ 321   5                                              break;
+ 322   5                                      }
+ 323   4                              }
+ 324   3                              LCD_ShowString(1,1,str);
+ 325   3                      }
+ 326   2                      else if(KeyNumber=='=')                                                                                                                                                 //      输出结果
+ 327   2                      {
+ 328   3                              Buzzer(20);
+ 329   3                              Char();
+ 330   3                      }
+ 331   2              }
+ 332   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   4197    ----
+   CONSTANT SIZE    =      2    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =    226      42
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

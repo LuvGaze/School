@@ -1,0 +1,24 @@
+C51 COMPILER V9.54   CHENGFA                                                               06/20/2024 17:18:59 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE CHENGFA
+OBJECT MODULE PLACED IN .\Objects\chengfa.obj
+COMPILER INVOKED BY: D:\Keil C51\C51\BIN\C51.EXE chengfa.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\
+                    -chengfa.lst) OBJECT(.\Objects\chengfa.obj)
+
+line level    source
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   ----    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
