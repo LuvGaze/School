@@ -1,0 +1,837 @@
+Model {
+  Name			  "PSKyangyufei6_5"
+  Version		  5.0
+  SaveDefaultBlockParams  on
+  SampleTimeColors	  off
+  LibraryLinkDisplay	  "none"
+  WideLines		  off
+  ShowLineDimensions	  off
+  ShowPortDataTypes	  off
+  ShowLoopsOnError	  on
+  IgnoreBidirectionalLines off
+  ShowStorageClass	  off
+  ExecutionOrder	  off
+  RecordCoverage	  off
+  CovPath		  "/"
+  CovSaveName		  "covdata"
+  CovMetricSettings	  "dw"
+  CovNameIncrementing	  off
+  CovHtmlReporting	  on
+  covSaveCumulativeToWorkspaceVar on
+  CovSaveSingleToWorkspaceVar on
+  CovCumulativeVarName	  "covCumulativeData"
+  CovCumulativeReport	  off
+  DataTypeOverride	  "UseLocalSettings"
+  MinMaxOverflowLogging	  "UseLocalSettings"
+  MinMaxOverflowArchiveMode "Overwrite"
+  BlockNameDataTip	  off
+  BlockParametersDataTip  off
+  BlockDescriptionStringDataTip	off
+  ToolBar		  on
+  StatusBar		  on
+  BrowserShowLibraryLinks off
+  BrowserLookUnderMasks	  off
+  Created		  "Wed Dec 20 16:33:21 2023"
+  UpdateHistory		  "UpdateHistoryNever"
+  ModifiedByFormat	  "%<Auto>"
+  LastModifiedBy	  "lenovo"
+  ModifiedDateFormat	  "%<Auto>"
+  LastModifiedDate	  "Thu Dec 21 14:44:47 2023"
+  ModelVersionFormat	  "1.%<AutoIncrement:4>"
+  ConfigurationManager	  "None"
+  SimParamPage		  "Solver"
+  LinearizationMsg	  "none"
+  Profile		  off
+  ParamWorkspaceSource	  "MATLABWorkspace"
+  AccelSystemTargetFile	  "accel.tlc"
+  AccelTemplateMakefile	  "accel_default_tmf"
+  AccelMakeCommand	  "make_rtw"
+  TryForcingSFcnDF	  off
+  ExtModeMexFile	  "ext_comm"
+  ExtModeBatchMode	  off
+  ExtModeTrigType	  "manual"
+  ExtModeTrigMode	  "normal"
+  ExtModeTrigPort	  "1"
+  ExtModeTrigElement	  "any"
+  ExtModeTrigDuration	  1000
+  ExtModeTrigHoldOff	  0
+  ExtModeTrigDelay	  0
+  ExtModeTrigDirection	  "rising"
+  ExtModeTrigLevel	  0
+  ExtModeArchiveMode	  "off"
+  ExtModeAutoIncOneShot	  off
+  ExtModeIncDirWhenArm	  off
+  ExtModeAddSuffixToVar	  off
+  ExtModeWriteAllDataToWs off
+  ExtModeArmWhenConnect	  on
+  ExtModeSkipDownloadWhenConnect off
+  ExtModeLogAll		  on
+  ExtModeAutoUpdateStatusClock on
+  BufferReuse		  on
+  RTWExpressionDepthLimit 5
+  SimulationMode	  "normal"
+  Solver		  "ode45"
+  SolverMode		  "Auto"
+  StartTime		  "0.0"
+  StopTime		  "10.0"
+  MaxOrder		  5
+  MaxStep		  "auto"
+  MinStep		  "auto"
+  MaxNumMinSteps	  "-1"
+  InitialStep		  "auto"
+  FixedStep		  "auto"
+  RelTol		  "1e-3"
+  AbsTol		  "auto"
+  OutputOption		  "RefineOutputTimes"
+  OutputTimes		  "[]"
+  Refine		  "1"
+  LoadExternalInput	  off
+  ExternalInput		  "[t, u]"
+  LoadInitialState	  off
+  InitialState		  "xInitial"
+  SaveTime		  on
+  TimeSaveName		  "tout"
+  SaveState		  off
+  StateSaveName		  "xout"
+  SaveOutput		  on
+  OutputSaveName	  "yout"
+  SaveFinalState	  off
+  FinalStateName	  "xFinal"
+  SaveFormat		  "Array"
+  Decimation		  "1"
+  LimitDataPoints	  on
+  MaxDataPoints		  "1000"
+  SignalLoggingName	  "sigsOut"
+  ConsistencyChecking	  "none"
+  ArrayBoundsChecking	  "none"
+  AlgebraicLoopMsg	  "warning"
+  BlockPriorityViolationMsg "warning"
+  MinStepSizeMsg	  "warning"
+  InheritedTsInSrcMsg	  "warning"
+  DiscreteInheritContinuousMsg "warning"
+  MultiTaskRateTransMsg	  "error"
+  SingleTaskRateTransMsg  "none"
+  CheckForMatrixSingularity "none"
+  IntegerOverflowMsg	  "warning"
+  Int32ToFloatConvMsg	  "warning"
+  ParameterDowncastMsg	  "error"
+  ParameterOverflowMsg	  "error"
+  ParameterPrecisionLossMsg "warning"
+  UnderSpecifiedDataTypeMsg "none"
+  UnnecessaryDatatypeConvMsg "none"
+  VectorMatrixConversionMsg "none"
+  InvalidFcnCallConnMsg	  "error"
+  SignalLabelMismatchMsg  "none"
+  UnconnectedInputMsg	  "warning"
+  UnconnectedOutputMsg	  "warning"
+  UnconnectedLineMsg	  "warning"
+  SfunCompatibilityCheckMsg "none"
+  RTWInlineParameters	  off
+  BlockReductionOpt	  on
+  BooleanDataType	  on
+  ConditionallyExecuteInputs on
+  ParameterPooling	  on
+  OptimizeBlockIOStorage  on
+  ZeroCross		  on
+  AssertionControl	  "UseLocalSettings"
+  ProdHWDeviceType	  "Microprocessor"
+  ProdHWWordLengths	  "8,16,32,32"
+  RTWSystemTargetFile	  "grt.tlc"
+  RTWTemplateMakefile	  "grt_default_tmf"
+  RTWMakeCommand	  "make_rtw"
+  RTWGenerateCodeOnly	  off
+  RTWRetainRTWFile	  off
+  TLCProfiler		  off
+  TLCDebug		  off
+  TLCCoverage		  off
+  TLCAssertion		  off
+  BlockDefaults {
+    Orientation		    "right"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    NamePlacement	    "normal"
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    ShowName		    on
+  }
+  BlockParameterDefaults {
+    Block {
+      BlockType		      Constant
+      Value		      "1"
+      VectorParams1D	      on
+      ShowAdditionalParam     off
+      OutDataTypeMode	      "Inherit from 'Constant value'"
+      OutDataType	      "sfix(16)"
+      ConRadixGroup	      "Use specified scaling"
+      OutScaling	      "2^0"
+    }
+    Block {
+      BlockType		      Demux
+      Outputs		      "4"
+      DisplayOption	      "none"
+      BusSelectionMode	      off
+    }
+    Block {
+      BlockType		      DiscretePulseGenerator
+      PulseType		      "Sample based"
+      Amplitude		      "1"
+      Period		      "2"
+      PulseWidth	      "1"
+      PhaseDelay	      "0"
+      SampleTime	      "1"
+      VectorParams1D	      on
+    }
+    Block {
+      BlockType		      Display
+      Format		      "short"
+      Decimation	      "10"
+      Floating		      off
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      FrameConversion
+      OutFrame		      "Frame-based"
+    }
+    Block {
+      BlockType		      Ground
+    }
+    Block {
+      BlockType		      Inport
+      Port		      "1"
+      PortDimensions	      "-1"
+      SampleTime	      "-1"
+      ShowAdditionalParam     off
+      LatchInput	      off
+      DataType		      "auto"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      Interpolate	      on
+    }
+    Block {
+      BlockType		      Mux
+      Inputs		      "4"
+      DisplayOption	      "none"
+    }
+    Block {
+      BlockType		      Outport
+      Port		      "1"
+      OutputWhenDisabled      "held"
+      InitialOutput	      "[]"
+    }
+    Block {
+      BlockType		      Product
+      Inputs		      "2"
+      Multiplication	      "Element-wise(.*)"
+      ShowAdditionalParam     off
+      InputSameDT	      on
+      OutDataTypeMode	      "Same as first input"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+    }
+    Block {
+      BlockType		      Relay
+      OnSwitchValue	      "eps"
+      OffSwitchValue	      "eps"
+      OnOutputValue	      "1"
+      OffOutputValue	      "0"
+      ShowAdditionalParam     off
+      OutputDataTypeScalingMode	"All ports same datatype"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+      ConRadixGroup	      "Use specified scaling"
+      ZeroCross		      on
+    }
+    Block {
+      BlockType		      RelationalOperator
+      Operator		      ">="
+      ShowAdditionalParam     off
+      InputSameDT	      on
+      LogicOutDataTypeMode    "Logical (see Advanced Sim. Parameters)"
+      LogicDataType	      "uint(8)"
+      ZeroCross		      on
+    }
+    Block {
+      BlockType		      Scope
+      Floating		      off
+      ModelBased	      off
+      TickLabels	      "OneTimeTick"
+      ZoomMode		      "on"
+      Grid		      "on"
+      TimeRange		      "auto"
+      YMin		      "-5"
+      YMax		      "5"
+      SaveToWorkspace	      off
+      SaveName		      "ScopeData"
+      LimitDataPoints	      on
+      MaxDataPoints	      "5000"
+      Decimation	      "1"
+      SampleInput	      off
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      "S-Function"
+      FunctionName	      "system"
+      PortCounts	      "[]"
+      SFunctionModules	      "''"
+    }
+    Block {
+      BlockType		      Sin
+      SineType		      "Time based"
+      Amplitude		      "1"
+      Bias		      "0"
+      Frequency		      "1"
+      Phase		      "0"
+      Samples		      "10"
+      Offset		      "0"
+      SampleTime	      "-1"
+      VectorParams1D	      on
+    }
+    Block {
+      BlockType		      StateSpace
+      A			      "1"
+      B			      "1"
+      C			      "1"
+      D			      "1"
+      X0		      "0"
+      AbsoluteTolerance	      "auto"
+      Realization	      "auto"
+    }
+    Block {
+      BlockType		      SubSystem
+      ShowPortLabels	      on
+      Permissions	      "ReadWrite"
+      RTWSystemCode	      "Auto"
+      RTWFcnNameOpts	      "Auto"
+      RTWFileNameOpts	      "Auto"
+      SimViewingDevice	      off
+      DataTypeOverride	      "UseLocalSettings"
+      MinMaxOverflowLogging   "UseLocalSettings"
+    }
+    Block {
+      BlockType		      ToWorkspace
+      VariableName	      "simulink_output"
+      MaxDataPoints	      "1000"
+      Decimation	      "1"
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      TriggerPort
+      TriggerType	      "rising"
+      ShowOutputPort	      off
+      OutputDataType	      "auto"
+      ZeroCross		      on
+    }
+    Block {
+      BlockType		      ZeroOrderHold
+      SampleTime	      "1"
+    }
+  }
+  AnnotationDefaults {
+    HorizontalAlignment	    "center"
+    VerticalAlignment	    "middle"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+  }
+  LineDefaults {
+    FontName		    "Helvetica"
+    FontSize		    9
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+  }
+  System {
+    Name		    "PSKyangyufei6_5"
+    Location		    [2, 82, 1582, 847]
+    Open		    on
+    ModelBrowserVisibility  off
+    ModelBrowserWidth	    200
+    ScreenColor		    "white"
+    PaperOrientation	    "landscape"
+    PaperPositionMode	    "auto"
+    PaperType		    "A4"
+    PaperUnits		    "centimeters"
+    ZoomFactor		    "100"
+    ReportName		    "simulink-default.rpt"
+    Block {
+      BlockType		      Reference
+      Name		      "AWGN\nChannel"
+      Ports		      [1, 1]
+      Position		      [635, 289, 715, 331]
+      SourceBlock	      "commchan2/AWGN\nChannel"
+      SourceType	      "AWGN Channel"
+      seed		      "67"
+      noiseMode		      "Signal to noise ratio  (SNR)"
+      EsNodB		      "10"
+      SNRdB		      "10"
+      Ps		      "1"
+      Tsym		      "1"
+      variance		      "1"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Analog\nFilter Design"
+      Ports		      [1, 1]
+      Position		      [505, 482, 570, 538]
+      SourceBlock	      "dsparch4/Analog\nFilter Design"
+      SourceType	      "Analog Filter Design"
+      method		      "Butterworth"
+      filttype		      "Lowpass"
+      N			      "2"
+      Wlo		      "2*pi*2"
+      Whi		      "80"
+      Rp		      "2"
+      Rs		      "40"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Bernoulli Binary\nGenerator"
+      Ports		      [0, 1]
+      Position		      [190, 278, 270, 322]
+      FontName		      "Arial"
+      SourceBlock	      "commrandsrc2/Bernoulli Binary\nGenerator"
+      SourceType	      "Bernoulli Binary Generator"
+      P			      "0.5"
+      seed		      "61"
+      Ts		      "0.5"
+      frameBased	      off
+      sampPerFrame	      "1"
+      orient		      off
+    }
+    Block {
+      BlockType		      Demux
+      Name		      "Demux"
+      Ports		      [1, 3]
+      Position		      [1190, 464, 1200, 526]
+      BackgroundColor	      "black"
+      ShowName		      off
+      Outputs		      "3"
+    }
+    Block {
+      BlockType		      Display
+      Name		      "Display"
+      Ports		      [1]
+      Position		      [1305, 480, 1395, 510]
+      Decimation	      "1"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Error Rate\nCalculation"
+      Ports		      [2, 1]
+      Position		      [1030, 467, 1105, 518]
+      SourceBlock	      "commsink2/Error Rate\nCalculation"
+      SourceType	      "Error Rate Calculation"
+      N			      "0"
+      st_delay		      "0"
+      cp_mode		      "Entire frame"
+      subframe		      "[]"
+      PMode		      "Port"
+      WsName		      "ErrorVec"
+      RsMode2		      off
+      stop		      off
+      numErr		      "100"
+      maxBits		      "1e6"
+    }
+    Block {
+      BlockType		      Mux
+      Name		      "Mux"
+      Ports		      [3, 1]
+      Position		      [1260, 463, 1265, 527]
+      ShowName		      off
+      Inputs		      "3"
+      DisplayOption	      "bar"
+    }
+    Block {
+      BlockType		      Product
+      Name		      "Product"
+      Ports		      [2, 1]
+      Position		      [525, 291, 570, 324]
+      InputSameDT	      off
+    }
+    Block {
+      BlockType		      Product
+      Name		      "Product1"
+      Ports		      [2, 1]
+      Position		      [400, 491, 445, 524]
+      InputSameDT	      off
+    }
+    Block {
+      BlockType		      Product
+      Name		      "Product2"
+      Ports		      [2, 1]
+      Position		      [685, 531, 730, 564]
+      InputSameDT	      off
+    }
+    Block {
+      BlockType		      DiscretePulseGenerator
+      Name		      "Pulse\nGenerator"
+      Position		      [480, 648, 525, 682]
+      Period		      "10"
+      PulseWidth	      "5"
+      SampleTime	      "1/500"
+    }
+    Block {
+      BlockType		      Relay
+      Name		      "Relay"
+      Position		      [400, 285, 430, 315]
+      OnSwitchValue	      "0.1"
+      OffSwitchValue	      "0.1"
+      OffOutputValue	      "-1"
+    }
+    Block {
+      BlockType		      Relay
+      Name		      "Relay1"
+      Position		      [775, 535, 805, 565]
+      OnSwitchValue	      "0.1"
+      OffSwitchValue	      "0.1"
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "Scope1"
+      Ports		      [1]
+      Position		      [310, 374, 340, 406]
+      Location		      [188, 365, 512, 604]
+      Open		      off
+      NumInputPorts	      "1"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+      }
+      List {
+	ListType		SelectedSignals
+	axes1			""
+      }
+      SaveName		      "ScopeData1"
+      DataFormat	      "StructureWithTime"
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "Scope2"
+      Ports		      [6]
+      Position		      [835, 141, 950, 304]
+      Location		      [631, 308, 1267, 750]
+      Open		      off
+      NumInputPorts	      "6"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+	axes2			"%<SignalLabel>"
+	axes3			"%<SignalLabel>"
+	axes4			"%<SignalLabel>"
+	axes5			"%<SignalLabel>"
+	axes6			"%<SignalLabel>"
+      }
+      List {
+	ListType		SelectedSignals
+	axes1			""
+	axes2			""
+	axes3			""
+	axes4			""
+	axes5			""
+	axes6			""
+      }
+      YMin		      "0~-5~-5~-5~-5~0"
+      YMax		      "1~5~5~5~5~1"
+      DataFormat	      "StructureWithTime"
+      LimitDataPoints	      off
+    }
+    Block {
+      BlockType		      Sin
+      Name		      "Sine Wave"
+      Position		      [370, 345, 400, 375]
+      SineType		      "Time based"
+      Amplitude		      "2"
+      Frequency		      "2*pi*10"
+      Samples		      "2*pi*20"
+      SampleTime	      "1/500"
+    }
+    Block {
+      BlockType		      Sin
+      Name		      "Sine Wave1"
+      Position		      [290, 500, 320, 530]
+      SineType		      "Time based"
+      Amplitude		      "2"
+      Frequency		      "2*pi*10"
+      SampleTime	      "1/500"
+    }
+    Block {
+      BlockType		      ToWorkspace
+      Name		      "To Workspace"
+      Position		      [1305, 415, 1365, 445]
+      VariableName	      "simout"
+      MaxDataPoints	      "inf"
+      SampleTime	      "-1"
+      SaveFormat	      "Structure"
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Triggered\nSubsystem"
+      Ports		      [1, 1, 0, 1]
+      Position		      [880, 484, 980, 526]
+      TreatAsAtomicUnit	      on
+      System {
+	Name			"Triggered\nSubsystem"
+	Location		[401, 346, 899, 646]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "In1"
+	  Position		  [110, 103, 140, 117]
+	}
+	Block {
+	  BlockType		  TriggerPort
+	  Name			  "Trigger"
+	  Ports			  []
+	  Position		  [225, 20, 245, 40]
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Out1"
+	  Position		  [360, 103, 390, 117]
+	}
+	Line {
+	  SrcBlock		  "In1"
+	  SrcPort		  1
+	  DstBlock		  "Out1"
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Upsample"
+      Ports		      [1, 1]
+      Position		      [565, 648, 600, 682]
+      SourceBlock	      "dspsigops/Upsample"
+      SourceType	      "Upsample"
+      N			      "10"
+      phase		      "0"
+      ic		      "0"
+      mode		      "Maintain input frame size"
+    }
+    Block {
+      BlockType		      ZeroOrderHold
+      Name		      "Zero-Order\nHold"
+      Position		      [745, 291, 780, 329]
+      SampleTime	      "1/500"
+    }
+    Line {
+      SrcBlock		      "Bernoulli Binary\nGenerator"
+      SrcPort		      1
+      Points		      [15, 0]
+      Branch {
+	Points			[65, 0]
+	Branch {
+	  Points		  [0, -140; 445, 0]
+	  Branch {
+	    Points		    [0, -30; 330, 0; 0, 165; -115, 0]
+	    DstBlock		    "Error Rate\nCalculation"
+	    DstPort		    1
+	  }
+	  Branch {
+	    DstBlock		    "Scope2"
+	    DstPort		    1
+	  }
+	}
+	Branch {
+	  DstBlock		  "Relay"
+	  DstPort		  1
+	}
+      }
+      Branch {
+	Points			[0, 90]
+	DstBlock		"Scope1"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Relay"
+      SrcPort		      1
+      DstBlock		      "Product"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Sine Wave"
+      SrcPort		      1
+      Points		      [70, 0; 0, -45]
+      DstBlock		      "Product"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Product"
+      SrcPort		      1
+      Points		      [5, 0]
+      Branch {
+	DstBlock		"AWGN\nChannel"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, -125]
+	DstBlock		"Scope2"
+	DstPort			2
+      }
+    }
+    Line {
+      SrcBlock		      "Sine Wave1"
+      SrcPort		      1
+      DstBlock		      "Product1"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Product2"
+      SrcPort		      1
+      DstBlock		      "Relay1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Relay1"
+      SrcPort		      1
+      Points		      [25, 0; 0, -45]
+      DstBlock		      "Triggered\nSubsystem"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Pulse\nGenerator"
+      SrcPort		      1
+      DstBlock		      "Upsample"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Upsample"
+      SrcPort		      1
+      Points		      [10, 0]
+      Branch {
+	Points			[0, -196]
+	DstBlock		"Triggered\nSubsystem"
+	DstPort			trigger
+      }
+      Branch {
+	Points			[15, 0; 0, -110]
+	DstBlock		"Product2"
+	DstPort			2
+      }
+    }
+    Line {
+      SrcBlock		      "Triggered\nSubsystem"
+      SrcPort		      1
+      Points		      [0, 0]
+      Branch {
+	Points			[0, 0]
+	DstBlock		"Error Rate\nCalculation"
+	DstPort			2
+      }
+      Branch {
+	Points			[0, -185; -165, 0]
+	DstBlock		"Scope2"
+	DstPort			6
+      }
+    }
+    Line {
+      SrcBlock		      "Error Rate\nCalculation"
+      SrcPort		      1
+      DstBlock		      "Demux"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Demux"
+      SrcPort		      1
+      Points		      [30, 0]
+      Branch {
+	DstBlock		"Mux"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, -45]
+	DstBlock		"To Workspace"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Demux"
+      SrcPort		      2
+      DstBlock		      "Mux"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Demux"
+      SrcPort		      3
+      DstBlock		      "Mux"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "Mux"
+      SrcPort		      1
+      DstBlock		      "Display"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Product1"
+      SrcPort		      1
+      Points		      [25, 0]
+      Branch {
+	DstBlock		"Analog\nFilter Design"
+	DstPort			1
+      }
+      Branch {
+	Points			[15, 0; 0, -275]
+	DstBlock		"Scope2"
+	DstPort			4
+      }
+    }
+    Line {
+      SrcBlock		      "Analog\nFilter Design"
+      SrcPort		      1
+      Points		      [20, 0]
+      Branch {
+	Points			[45, 0; 0, 30]
+	DstBlock		"Product2"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, -250]
+	DstBlock		"Scope2"
+	DstPort			5
+      }
+    }
+    Line {
+      SrcBlock		      "Zero-Order\nHold"
+      SrcPort		      1
+      Points		      [25, 0]
+      Branch {
+	Points			[-15, 0; 0, 120; -410, 0]
+	DstBlock		"Product1"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, -100]
+	DstBlock		"Scope2"
+	DstPort			3
+      }
+    }
+    Line {
+      SrcBlock		      "AWGN\nChannel"
+      SrcPort		      1
+      DstBlock		      "Zero-Order\nHold"
+      DstPort		      1
+    }
+  }
+}
