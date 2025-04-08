@@ -1,0 +1,593 @@
+C51 COMPILER V9.54   MAIN                                                                  06/20/2024 16:50:41 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: D:\Keil C51\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\mai
+                    -n.lst) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include "reg52.h" 
+   2           
+   3          #define KEY_PORT P1 //矩阵按键
+   4           
+   5           
+   6          sbit rw=P2^5;            
+   7          sbit rs=P2^6;            
+   8          sbit e=P2^7; 
+   9           
+  10          sbit KEY1=P3^1;
+  11          sbit KEY2=P3^0;
+  12          sbit KEY3=P3^2;
+  13          sbit KEY4=P3^3;
+  14           
+  15           
+  16          code unsigned char ERROR[]="     ERROR!";
+  17          code unsigned char wel[]="    Welcome!";
+  18          unsigned char negative1,negative2,fuhao,jjcc,jjcc,key_value,decimal1,decimal2,j1,x,symbol0,beep=200,be=0,b
+             -e2,key=1;
+  19          float number1,number2,result,resulted;
+  20          unsigned int dec1,dec2,mul1,mul2;
+  21          long num1,num2;
+  22           
+  23          void write_comm(unsigned int c);
+  24          void write_data(unsigned int dat);
+  25          void lcdinit();
+  26          void resultShow(float value);
+  27          void getFuhao(key_value);
+  28          void getNum(key_value);
+  29          void calculate(void);
+  30          void delect(void);
+  31          void numShow(unsigned int zhengshu);
+  32          void getNeg(key_value);
+  33          void buzzer(beep);
+  34           
+  35           
+  36          //延时
+  37          void delay(unsigned int ten_us)
+  38          {
+  39   1              while(ten_us--);
+  40   1      }
+  41           
+  42          void buzzer(beep)
+  43          {       
+  44   1              while(beep--)//循环 200 次
+  45   1              {
+  46   2                      rw=!rw;//产生一定频率的脉冲信号
+  47   2                      delay(100);
+  48   2              }
+  49   1              rw=0;//关闭蜂鸣器
+  50   1      }
+  51           
+  52          //按键
+  53          void key_scan(void)
+C51 COMPILER V9.54   MAIN                                                                  06/20/2024 16:50:41 PAGE 2   
+
+  54          {       
+  55   1              key_value=0;
+  56   1              KEY_PORT=0xf7;//给第一列赋值 0，其余全为 1
+  57   1              if(KEY_PORT!=0xf7)//判断第一列按键是否按下
+  58   1              {
+  59   2                      delay(1000);//消抖
+  60   2                      switch(KEY_PORT)//保存第一列按键按下后的键值
+  61   2                      {
+  62   3                              case 0x77: key_value=1;buzzer(beep);getNum(key_value);break;
+  63   3                              case 0xb7: key_value=4;buzzer(beep);getNum(key_value);break;
+  64   3                              case 0xd7: key_value=7;buzzer(beep);getNum(key_value);break;
+  65   3                              case 0xe7: 
+  66   3                                      buzzer(beep);
+  67   3                                      key_value=10;//"."
+  68   3                                      if(fuhao==0) 
+  69   3                                      {
+  70   4                                              decimal1 = 1;
+  71   4                                              write_data('.');
+  72   4                                      }
+  73   3                                      else if(fuhao==1) 
+  74   3                                      {
+  75   4                                              decimal2 = 1;
+  76   4                                              write_data('.');
+  77   4                                      }
+  78   3                                      break;
+  79   3                      }       
+  80   2              }
+  81   1              while(KEY_PORT!=0xf7);//等待按键松开
+  82   1              KEY_PORT=0xfb;//给第二列赋值 0，其余全为 1
+  83   1       
+  84   1              if(KEY_PORT!=0xfb)//判断第二列按键是否按下
+  85   1              {
+  86   2                      delay(1000);//消抖
+  87   2                      switch(KEY_PORT)//保存第二列按键按下后的键值
+  88   2                      {
+  89   3                              case 0x7b: key_value=2;buzzer(beep);getNum(key_value);break;
+  90   3                              case 0xbb: key_value=5;buzzer(beep);getNum(key_value);break;
+  91   3                              case 0xdb: key_value=8;buzzer(beep);getNum(key_value);break;
+  92   3                              case 0xeb: key_value=0;buzzer(beep);getNum(key_value);break;
+  93   3                      }
+  94   2              }
+  95   1              while(KEY_PORT!=0xfb);//等待按键松开
+  96   1              KEY_PORT=0xfd;//给第三列赋值 0，其余全为 1
+  97   1              if(KEY_PORT!=0xfd)//判断第三列按键是否按下
+  98   1              {
+  99   2                      delay(1000);//消抖
+ 100   2                      switch(KEY_PORT)//保存第三列按键按下后的键值
+ 101   2                      {
+ 102   3                              case 0x7d: key_value=3;buzzer(beep);getNum(key_value);break;
+ 103   3                              case 0xbd: key_value=6;buzzer(beep);getNum(key_value);break;
+ 104   3                              case 0xdd: key_value=9;buzzer(beep);getNum(key_value);break;
+ 105   3                              case 0xed: 
+ 106   3                                      buzzer(beep);
+ 107   3                                      key_value=11;//"="
+ 108   3                                      write_data('=');
+ 109   3                                      calculate();
+ 110   3                                      if(symbol0==0)//显示错误时影响光标
+ 111   3                                      {
+ 112   4                                              resulted = result;
+ 113   4                                              write_comm(0xC0);
+ 114   4                                              resultShow(result);
+ 115   4                                      }
+C51 COMPILER V9.54   MAIN                                                                  06/20/2024 16:50:41 PAGE 3   
+
+ 116   3                                      else
+ 117   3                                              symbol0=0;
+ 118   3                                      break;
+ 119   3                      }       
+ 120   2              }
+ 121   1              while(KEY_PORT!=0xfd);//等待按键松开
+ 122   1              KEY_PORT=0xfe;//给第四列赋值 0，其余全为 1
+ 123   1              if(KEY_PORT!=0xfe)//判断第四列按键是否按下
+ 124   1              {
+ 125   2                      delay(1000);//消抖
+ 126   2                      switch(KEY_PORT)//保存第四列按键按下后的键值
+ 127   2                      {
+ 128   3                              case 0x7e: key_value=12;buzzer(beep);getFuhao(key_value);break;//"+"
+ 129   3                              case 0xbe: key_value=13;buzzer(beep);getNeg(key_value);break;//"-"
+ 130   3                              case 0xde: key_value=14;buzzer(beep);getFuhao(key_value);break;//"*"
+ 131   3                              case 0xee: key_value=15;buzzer(beep);getFuhao(key_value);break;//"/"
+ 132   3                      }
+ 133   2              }
+ 134   1              while(KEY_PORT!=0xfe);//等待按键松开
+ 135   1              if(key==1 && (KEY1==0||KEY2==0||KEY3==0||KEY4==0))//任意按键按下
+ 136   1              {       
+ 137   2                      delay(1000);//消抖
+ 138   2                      key=0;
+ 139   2                      if(KEY1==0)
+ 140   2                      {       buzzer(beep);
+ 141   3                              write_comm(0x01);
+ 142   3                              lcdinit();//AC
+ 143   3                              resulted=0;
+ 144   3                      }
+ 145   2                      else if(KEY2==0)
+ 146   2                      {       buzzer(beep);
+ 147   3                              delect();
+ 148   3                      }
+ 149   2                      else if(KEY3==0)
+ 150   2                      {       buzzer(beep);
+ 151   3                              write_comm(0x01);
+ 152   3                              lcdinit();
+ 153   3                              resultShow(resulted);//连续计算
+ 154   3                      }
+ 155   2                      else if(KEY4==0)
+ 156   2                      {
+ 157   3                              buzzer(beep);
+ 158   3                              be=be+1;
+ 159   3                              be2=be%2;
+ 160   3                              if(be2==0)
+ 161   3                              {
+ 162   4                                      beep=200;
+ 163   4                              }
+ 164   3                              else if(be2==1)
+ 165   3                              {
+ 166   4                                      beep=0;
+ 167   4                              }                                       
+ 168   3                              
+ 169   3                      }
+ 170   2              }
+ 171   1              else if(KEY1==1&&KEY2==1&&KEY3==1&&KEY4==1) //无按键按下
+ 172   1              {
+ 173   2                      key=1;
+ 174   2              }
+ 175   1      }
+ 176           
+ 177          void getNeg(key_value)
+C51 COMPILER V9.54   MAIN                                                                  06/20/2024 16:50:41 PAGE 4   
+
+ 178          {       
+ 179   1              if(key_value == 13) 
+ 180   1              {
+ 181   2                      if(resulted==0)
+ 182   2                      {       
+ 183   3                              if(fuhao == 0)//第一个负号
+ 184   3                              {
+ 185   4                                      if(num1 == 0 && dec1 == 0)
+ 186   4                                      {
+ 187   5                                              write_data('-');
+ 188   5                                              negative1 = 1;
+ 189   5                                      }
+ 190   4                                      else
+ 191   4                                      {
+ 192   5                                              write_data('-');
+ 193   5                                              jjcc=1;
+ 194   5                                              fuhao=1;
+ 195   5                                      }       
+ 196   4                              }
+ 197   3                              else if(fuhao == 1)//第二个负号
+ 198   3                              {
+ 199   4                                      if(num2 == 0 && dec2 == 0)
+ 200   4                                      {
+ 201   5                                              negative2 = 1;
+ 202   5                                              write_data('-');
+ 203   5                                      }
+ 204   4                              }
+ 205   3                      }
+ 206   2                      else if(resulted!=0)
+ 207   2                      {
+ 208   3                              if(fuhao == 0)
+ 209   3                              {
+ 210   4                                      write_data('-');
+ 211   4                                      jjcc=1;
+ 212   4                                      fuhao=1;
+ 213   4                              }
+ 214   3                              else if(fuhao == 1)
+ 215   3                              {
+ 216   4                                      if(num2 == 0 && dec2 == 0)
+ 217   4                                      {
+ 218   5                                      negative2 = 1;
+ 219   5                                      write_data('-');
+ 220   5                                      }
+ 221   4                              }
+ 222   3                      }
+ 223   2              }
+ 224   1      }
+ 225           
+ 226           
+ 227           
+ 228           
+ 229          //计算
+ 230          void calculate()
+ 231          {       
+ 232   1                      if(resulted!=0)
+ 233   1                      {       
+ 234   2                              number1 = resulted;
+ 235   2                              number2 = (float)num2 + (float)dec2/(float)mul2;
+ 236   2                      }
+ 237   1                      else
+ 238   1                      {       
+ 239   2                              number1 = (float)num1+ (float)dec1/(float)mul1;
+C51 COMPILER V9.54   MAIN                                                                  06/20/2024 16:50:41 PAGE 5   
+
+ 240   2                              number2 = (float)num2 + (float)dec2/(float)mul2;//类型转换
+ 241   2                      }
+ 242   1                      if(negative1==1) number1 = -number1;//给负号
+ 243   1                      if(negative2==1) number2 = -number2;
+ 244   1                      switch(jjcc)
+ 245   1                      {
+ 246   2                              case 0: result = number1 + number2;break;
+ 247   2                              case 1: result = number1 - number2;break;
+ 248   2                              case 2: result = number1 * number2;break;
+ 249   2                              case 3:
+ 250   2                                      if(number2==0) 
+ 251   2                                      {       symbol0=1;
+ 252   3                                              write_comm(0x01);
+ 253   3                                              for(j1=0;j1<11;j1++)
+ 254   3                                              {
+ 255   4                                                      write_data(ERROR[j1]);//显示语句：ERROR！ 
+ 256   4                                              }
+ 257   3                                              delay(50000);
+ 258   3                                              lcdinit();
+ 259   3                                      }
+ 260   2                                      else
+ 261   2                                      {
+ 262   3                                              result = number1 / number2;
+ 263   3                                      }break;
+ 264   2                      }
+ 265   1      }
+ 266                  
+ 267           
+ 268           
+ 269          //获取整数、小数
+ 270          void getNum(key_value)
+ 271          {
+ 272   1              if(resulted!=0)//上次运算的结果
+ 273   1              {
+ 274   2                      if(fuhao==1)
+ 275   2                      {       
+ 276   3                              if(decimal2==0)//输入不是小数
+ 277   3                              {
+ 278   4                                      write_data(key_value + 0x30);
+ 279   4                                      num2 = key_value + num2*10;//第二个整数
+ 280   4                              }
+ 281   3                              else if(decimal2==1)
+ 282   3                              {
+ 283   4                                      write_data(key_value + 0x30);
+ 284   4                                      dec2 = key_value + dec2*10;//第二个小数
+ 285   4                                      mul2=10*mul2;
+ 286   4                              }
+ 287   3                      }
+ 288   2              }
+ 289   1              else
+ 290   1              {
+ 291   2                      if(fuhao==0 )
+ 292   2                      {       
+ 293   3                              if(decimal1==0)//输入不是小数
+ 294   3                              {
+ 295   4                                      write_data(key_value + 0x30);
+ 296   4                                      num1 = key_value + num1*10;//第一个整数
+ 297   4                              }
+ 298   3                              else if(decimal1==1)
+ 299   3                              {
+ 300   4                                      write_data(key_value + 0x30);
+ 301   4                                      dec1 = key_value + dec1*10;//第一个小数
+C51 COMPILER V9.54   MAIN                                                                  06/20/2024 16:50:41 PAGE 6   
+
+ 302   4                                      mul1=10*mul1;
+ 303   4                              }
+ 304   3          }
+ 305   2                      else if(fuhao==1)
+ 306   2                      {       
+ 307   3                              if(decimal2==0)//输入不是小数
+ 308   3                              {
+ 309   4                                      write_data(key_value + 0x30);
+ 310   4                                      num2 = key_value + num2*10;//第二个整数
+ 311   4                              }
+ 312   3                              else if(decimal2==1)
+ 313   3                              {
+ 314   4                                      write_data(key_value + 0x30);
+ 315   4                                      dec2 = key_value + dec2*10;//第二个小数
+ 316   4                                      mul2=10*mul2;
+ 317   4                              }
+ 318   3                      }
+ 319   2              }
+ 320   1      }
+ 321           
+ 322          //获取加减乘除符号值
+ 323          void getFuhao(key_value)
+ 324          {
+ 325   1              if(fuhao==0 && ( key_value==12||key_value==13||key_value==14||key_value==15))
+ 326   1              {
+ 327   2                      if(key_value==12) 
+ 328   2                      {
+ 329   3                              jjcc = 0;
+ 330   3                              write_data('+');
+ 331   3                              fuhao = 1;
+ 332   3                      }
+ 333   2                      else if(key_value==14)
+ 334   2                      {
+ 335   3                              jjcc = 2;
+ 336   3                              write_data('*');
+ 337   3                              fuhao = 1;
+ 338   3                      }
+ 339   2                      else if(key_value==15)
+ 340   2                      {
+ 341   3                              jjcc = 3;
+ 342   3                              write_data('/');
+ 343   3                              fuhao = 1;
+ 344   3                      }
+ 345   2                      
+ 346   2              }
+ 347   1      }       
+ 348           
+ 349          //删除
+ 350          void delect()
+ 351          {
+ 352   1              write_comm(0x04);
+ 353   1              write_data(0x20);
+ 354   1              write_comm(0x06);
+ 355   1              write_data(0x20);
+ 356   1              write_comm(0x04);
+ 357   1              write_data(0x20);
+ 358   1              write_comm(0x06);
+ 359   1              if(fuhao==1)
+ 360   1              {       
+ 361   2                      if(num2==0 && dec2==0)//删符号
+ 362   2                      {       
+ 363   3                              if(negative2==1)
+C51 COMPILER V9.54   MAIN                                                                  06/20/2024 16:50:41 PAGE 7   
+
+ 364   3                              {
+ 365   4                                      negative2=0;//删第二个负号
+ 366   4                              }
+ 367   3                              else
+ 368   3                              {
+ 369   4                                      fuhao=0;//删运算符号
+ 370   4                                      jjcc=4;
+ 371   4                              }
+ 372   3                      }
+ 373   2                      else if(decimal2 == 0)//删第二个整数
+ 374   2                              num2=num2/10;
+ 375   2                      else if(decimal2 == 1)
+ 376   2                      {
+ 377   3                              if(dec2 == 0) decimal2 = 0;//删小数点
+ 378   3                              else 
+ 379   3                              {
+ 380   4                                      dec2=dec2/10;//删第二个小数
+ 381   4                                      mul2=mul2/10;
+ 382   4                              }
+ 383   3                      }
+ 384   2              }
+ 385   1              else if(fuhao==0)
+ 386   1              {       
+ 387   2                      if(negative1==1 && num1==0 && dec1==0)//第一个负号
+ 388   2                      {
+ 389   3                              negative1=0;
+ 390   3                      }
+ 391   2                      else if(decimal1 == 0)
+ 392   2                              num1=num1/10;//第一个整数
+ 393   2                      else if(decimal1 == 1)//第一个小数
+ 394   2                      {
+ 395   3                              if(dec1 == 0) decimal1 = 0;//第一个小数符号
+ 396   3                              else 
+ 397   3                              {
+ 398   4                                      dec1=dec1/10;
+ 399   4                                      mul1=mul1/10;//第一个小数数字
+ 400   4                              }
+ 401   3                      }
+ 402   2              }
+ 403   1      }
+ 404           
+ 405          void write_comm(unsigned int c)
+ 406          {
+ 407   1       delay(1000);
+ 408   1       rs=0;
+ 409   1       rw=0;
+ 410   1       e=0;
+ 411   1       P0=c;
+ 412   1       e=1;
+ 413   1       delay(1000);
+ 414   1       e=0;
+ 415   1      }//写命令
+ 416           
+ 417           
+ 418           
+ 419          void write_data(unsigned int dat) //设置LCD写数据
+ 420          {
+ 421   1       delay(1000);
+ 422   1       rs=1;
+ 423   1       rw=0;
+ 424   1       e=0;
+ 425   1       P0=dat;
+C51 COMPILER V9.54   MAIN                                                                  06/20/2024 16:50:41 PAGE 8   
+
+ 426   1       e=1;
+ 427   1       delay(1000);
+ 428   1       e=0;
+ 429   1       rs=0;
+ 430   1      }
+ 431           
+ 432          void lcdinit()   //初始化LCD
+ 433          {
+ 434   1              delay(1500);
+ 435   1        write_comm(0x38);//写指令38H
+ 436   1        delay(500);
+ 437   1        write_comm(0x38);//显示模式设置
+ 438   1        delay(500);
+ 439   1        write_comm(0x38);
+ 440   1        delay(500);
+ 441   1        write_comm(0x38);//功能设定指令
+ 442   1        write_comm(0x08);
+ 443   1        write_comm(0x01);//清屏
+ 444   1        write_comm(0x06);//显示光标移动设置写入数据后移
+ 445   1        write_comm(0x0c); //显示开关控制指令
+ 446   1        write_comm(0x0f); //显示光标并闪烁
+ 447   1              negative1=0,negative2=0;
+ 448   1              fuhao=0,jjcc=4;
+ 449   1              mul1=1,mul2=1,key_value=0,j1=0;
+ 450   1              num1=0,num2=0,dec1=0,dec2=0,decimal1=0,decimal2=0;
+ 451   1              number1 = 0.0, number2 = 0.0, result = 0.0;
+ 452   1      }
+ 453           
+ 454           
+ 455           
+ 456          void resultShow(float value)//结果显示
+ 457          {       
+ 458   1              long z_value = 0;
+ 459   1              long dec_value = 0;
+ 460   1              long z_value2=0;
+ 461   1              long value3=0;
+ 462   1              long z_value4=0;
+ 463   1              if(value<0)
+ 464   1              { 
+ 465   2                      write_data('-');
+ 466   2                      value=-value;
+ 467   2              }
+ 468   1              if(value<=13000)//小数精度问题
+ 469   1              {       
+ 470   2                      z_value = value * 10;//unsigned int放大保留
+ 471   2                      z_value2 = value;//unsigned int截断
+ 472   2                      z_value4 = value * 100;
+ 473   2                      dec_value = z_value - z_value2*10;//要保留的小数
+ 474   2                      value3=(z_value4 - z_value2*100)-dec_value*10;//四舍五入的小数
+ 475   2                      if(value3>=5 && value3<=9)
+ 476   2                      {
+ 477   3                              dec_value = dec_value + 1;//获取小数
+ 478   3                              if(dec_value==10)
+ 479   3                              {
+ 480   4                                      value=value+1;
+ 481   4                                      dec_value=0;
+ 482   4                              }
+ 483   3                      }
+ 484   2                      if(dec_value==0)//整数
+ 485   2                      {       
+ 486   3                              if(z_value2==0)
+ 487   3                                      write_data('0');
+C51 COMPILER V9.54   MAIN                                                                  06/20/2024 16:50:41 PAGE 9   
+
+ 488   3                              else
+ 489   3                                      numShow(value);
+ 490   3                      }
+ 491   2                      else//有小数
+ 492   2                      {       
+ 493   3                              if(z_value2==0)
+ 494   3                                      write_data('0');
+ 495   3                              else
+ 496   3                                      numShow(value);
+ 497   3                              write_data('.');
+ 498   3      //                      if(dec_value<10)//一位小数补两个0
+ 499   3      //                      {
+ 500   3      //                              write_data('0');
+ 501   3                                      write_data('0');
+ 502   3      //                      }
+ 503   3      //                      else if(dec_value<100 && dec_value>=10)//两位小数补一个
+ 504   3      //                              write_data('0');
+ 505   3                              numShow(dec_value);
+ 506   3                      }
+ 507   2              }
+ 508   1              else
+ 509   1              {
+ 510   2                      numShow(value);
+ 511   2              }
+ 512   1      }
+ 513           
+ 514          //数字显示
+ 515          void numShow(long c)//加减乘
+ 516          {       unsigned char cc[15];
+*** WARNING C235 IN LINE 516 OF main.c: parameter 1: different types
+ 517   1              unsigned int nn=0;
+ 518   1              unsigned int ss=0;
+ 519   1              for(c;c>0;c=c/10)//按位存入数组，倒序存储，最左边是个位
+ 520   1              { 
+ 521   2                      cc[++ss]=c%10;//从个位开始存，然后存的位数加1并向右移位
+ 522   2                      nn++;//结果位数加1
+ 523   2              }
+ 524   1        for(nn;nn>0;nn--)//循环显示结果
+ 525   1        {
+ 526   2          write_data(0x30+(cc[nn]));//从数组的右向左显示
+ 527   2        }  
+ 528   1      } 
+ 529           
+ 530          //主函数
+ 531          void main ()
+ 532          {
+ 533   1              
+ 534   1              lcdinit();
+ 535   1              
+ 536   1              for(x=0;x<12;x++)
+ 537   1              {
+ 538   2          write_data(wel[x]);//显示欢迎语句：Welcome 
+ 539   2                      delay(3000); 
+ 540   2              }
+ 541   1              
+ 542   1              write_comm(0x01);
+ 543   1       
+ 544   1              
+ 545   1              while (1) 
+ 546   1              {
+ 547   2                      key_scan();     
+ 548   2              }
+C51 COMPILER V9.54   MAIN                                                                  06/20/2024 16:50:41 PAGE 10  
+
+ 549   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   2646    ----
+   CONSTANT SIZE    =     25    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     46      51
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)
