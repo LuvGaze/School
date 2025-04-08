@@ -1,0 +1,12 @@
+Ts=0.01;Fs=1/Ts;
+xa1=spline(Ts*n1,x1,t);
+subplot(3,1,1);plot(t,xa1);axis([0,1,-1.1,1.1]);
+ylabel('x_a(t)');title('Reconstruction of x_a(t) when Ts=0.01');
+Ts=0.05;Fs=1/Ts;
+xa2=spline(Ts*n2,x2,t);
+subplot(3,1,2);plot(t,xa2);axis([0,1,-1.1,1.1]);
+ylabel('x_a(t)');title('Reconstruction of x_a(t) when Ts=0.05');
+Ts=0.1;Fs=1/Ts;
+xa3=spline(Ts*n3,x3,t);
+subplot(3,1,3);plot(t,xa3);axis([0,1,-1.1,1.1]);
+ylabel('x_a(t)');title('Reconstruction of x_a(t) when Ts=0.1');

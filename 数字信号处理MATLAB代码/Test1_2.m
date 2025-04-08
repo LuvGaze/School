@@ -1,0 +1,12 @@
+Ts=0.01;Fs=1/Ts;
+xa1=x1*sinc(Fs*(ones(length(n1),1)*t-(n1*Ts)'*ones(1,length(t))));
+subplot(3,1,1);plot(t,xa1);axis([0,1,-1.1,1.1]);
+ylabel('x_a(t)');title('Reconstruction of x_a(t) when Ts=0.01');
+Ts=0.05;Fs=1/Ts;
+xa2=x2*sinc(Fs*(ones(length(n2),1)*t-(n2*Ts)'*ones(1,length(t))));
+subplot(3,1,2);plot(t,xa2);axis([0,1,-1.1,1.1]);
+ylabel('x_a(t)');title('Reconstruction of x_a(t) when Ts=0.05');
+Ts=0.1;Fs=1/Ts;
+xa3=x3*sinc(Fs*(ones(length(n3),1)*t-(n3*Ts)'*ones(1,length(t))));
+subplot(3,1,3);plot(t,xa3);axis([0,1,-1.1,1.1]);
+ylabel('x_a(t)');title('Reconstruction of x_a(t) when Ts=0.1');
