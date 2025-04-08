@@ -1,0 +1,4 @@
+"yyh.obj",
+"LCD1602.obj" 
+TO "yyh" 
+RAMSIZE(256) 
