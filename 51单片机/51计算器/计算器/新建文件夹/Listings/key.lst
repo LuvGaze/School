@@ -1,0 +1,104 @@
+C51 COMPILER V9.54   KEY                                                                   06/22/2024 20:27:16 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE KEY
+OBJECT MODULE PLACED IN .\Objects\key.obj
+COMPILER INVOKED BY: D:\Keil C51\C51\BIN\C51.EXE key.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\key.
+                    -lst) OBJECT(.\Objects\key.obj)
+
+line level    source
+
+   1          #include "reg52.h"
+   2          #include "key.h"
+   3          #define keydata P2
+   4          
+   5          sbit key1 = P3^0;
+   6          sbit key2 = P3^1;
+   7          
+   8          void delay1ms(void)   
+   9          {
+  10   1          unsigned char a,b,c;
+  11   1          for(c=1;c>0;c--)
+  12   1              for(b=142;b>0;b--)
+  13   1                  for(a=2;a>0;a--);
+  14   1      }
+  15          
+  16          
+  17          //дݼ׵ܘֵ
+  18          //  1   2   3   13
+  19          //  4   5   6   16
+  20          //  7   8   9   19
+  21          //  10  0   12  22
+  22          //ϞдЂ -1
+  23          
+  24          
+  25          
+  26          char keyscan()    //
+  27          {
+  28   1                char Dat;
+  29   1                      keydata = 0xf0;
+  30   1               if(keydata != 0xf0)
+  31   1               {
+  32   2                              delay1ms();
+  33   2                         if(keydata != 0xf0)
+  34   2                               {
+  35   3                                              switch(keydata)
+  36   3                                              {
+  37   4                                                      case 0xe0:Dat=1;break;
+  38   4                                                      case 0xd0:Dat=2;break;
+  39   4                                                      case 0xb0:Dat=3;break;
+  40   4                                                      case 0x70:Dat=13;break;
+  41   4                                              }
+  42   3      
+  43   3                                              keydata = 0x0f;
+  44   3                                              
+  45   3                                              switch(keydata)
+  46   3                                              {
+  47   4                                                      case 0x0e:Dat+=0;break;
+  48   4                                                      case 0x0d:Dat+=3;break;
+  49   4                                                      case 0x0b:Dat+=6;break;
+  50   4                                                      case 0x07:Dat+=9;break;
+  51   4                                              }
+  52   3                                              
+  53   3                                      while(keydata != 0x0f); 
+  54   3                                      if(Dat!=11)     return Dat;
+C51 COMPILER V9.54   KEY                                                                   06/22/2024 20:27:16 PAGE 2   
+
+  55   3                                              else return 0;
+  56   3                               }
+  57   2                 
+  58   2               }
+  59   1               if(key1==0)
+  60   1               {
+  61   2                      delay1ms();
+  62   2                       if(key1==0)
+  63   2                       {
+  64   3                              while(key1==0);
+  65   3                               return 11;
+  66   3                       }
+  67   2               }
+  68   1               if(key2==0)
+  69   1               {
+  70   2                      delay1ms();
+  71   2                       if(key2==0)
+  72   2                       {
+  73   3                              while(key2==0);
+  74   3                               return 14;
+  75   3                       }
+  76   2               }
+  77   1           return -1;
+  78   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    153    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       1
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

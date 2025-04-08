@@ -1,0 +1,748 @@
+C51 COMPILER V9.54   MAIN                                                                  06/22/2024 20:27:36 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: D:\Keil C51\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\mai
+                    -n.lst) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include "reg51.h"                       //Ջτݾא֨ӥեƬܺքһЩ͘ˢ٦Ŝ݄զǷ
+   2          #include "lcd.h"
+   3          #include "key.h"
+   4          #include "math.h"
+   5          #include "string.h"
+   6          #include "stdio.h"
+   7          
+   8          #define u8  unsigned char
+   9          #define u16 unsigned int
+  10          
+  11          //дݼ͘ˢػۅֵ
+  12          #define add 13    // +
+  13          #define sub 16    // -
+  14          #define mul 19    // *
+  15          #define div 22    // /
+  16          #define pot 10    // .
+  17          #define equ 12    // =
+  18          #define fuh 11    //غ˽
+  19          #define clr 14    //ȥԽ
+  20          
+  21          #define MAXN 20
+  22          
+  23          #define max(a, b) ((a) > (b) ? (a) : (b))
+  24          
+  25          sbit beep=P1^0;
+  26          
+  27          void LCD_ShowStr(char addr,char * str);
+  28          
+  29          void delay(u16  t)     //ғʱگ˽
+  30          {
+  31   1              while(t--);
+  32   1      }
+  33          
+  34          
+  35          //خճ9 9999 9999 9999 
+  36          u8  data0[16]={0};
+  37          u8  data1[16]={0};
+  38          
+  39          u8  show0[16]={0};
+  40          u8  show1[16]={0};
+  41          
+  42          
+  43          char com(u8 *a1,u8 *b1)    //a1>b1 return 1   a1=b1 return 0 a1<b1 return -1
+  44          {
+  45   1                      u8 len0;
+  46   1                      u8 len1; 
+  47   1                      int i=0;
+  48   1                      len0 = strlen(a1);
+  49   1                      len1 = strlen(b1);
+  50   1          if(len0>len1){ return 1;}
+  51   1          else if(len0==len1)
+  52   1                              { 
+  53   2             while(a1[i]==b1[i]&&i<len1)
+  54   2                                       {
+C51 COMPILER V9.54   MAIN                                                                  06/22/2024 20:27:36 PAGE 2   
+
+  55   3                  i++;
+  56   3               }
+  57   2             if(i==len1) return 0;
+  58   2             else if(a1[i]>b1[i]) return 1;
+  59   2             else return -1;
+  60   2          }
+  61   1          else return -1;
+  62   1      
+  63   1      }
+  64          
+  65          
+  66          void addx(u8 *s1,u8 *s2,u8 out[]) 
+  67          {
+  68   1              char i,j=0;
+  69   1              char an1[MAXN]=0;
+  70   1        char an2[MAXN]=0;
+  71   1              
+  72   1              int len1=strlen(s1);
+  73   1              int len2=strlen(s2);
+  74   1              
+  75   1        for(i=len1-1;i>=0;i--) an1[j++]=s1[i]-'0';     
+  76   1              j=0;
+  77   1        for(i=len2-1;i>=0;i--) an2[j++]=s2[i]-'0';    
+  78   1        j=0;
+  79   1              for(i=0;i<max(len1,len2)+1;i++)
+  80   1              {
+  81   2                      an1[i]+=an2[i];
+  82   2                      if(an1[i]>=10)
+  83   2                              {
+  84   3                                      an1[i]-=10;
+  85   3                                      an1[i+1]++;
+  86   3                      }
+  87   2                      an1[i]+='0';
+  88   2              }
+  89   1              i=strlen(an1)-1;   
+  90   1              while(an1[i]=='0')i--;    //Խȥ˗λ0
+  91   1              memset(out,0,MAXN);
+  92   1              for(;i>=0;i--)
+  93   1              {
+  94   2                      out[j]=an1[i];
+  95   2                      j++;
+  96   2              }
+  97   1              
+  98   1      }
+  99          
+ 100          void subx(u8 *s1,u8 *s2,u8 out[]) 
+ 101          {
+ 102   1              char i,j=0;
+ 103   1              char an1[MAXN]=0;
+ 104   1        char an2[MAXN]=0;
+ 105   1      
+ 106   1              int len1=strlen(s1);
+ 107   1              int len2=strlen(s2);
+ 108   1              
+ 109   1        for(i=len1-1;i>=0;i--) an1[j++]=s1[i]-'0';     
+ 110   1              j=0;
+ 111   1        for(i=len2-1;i>=0;i--) an2[j++]=s2[i]-'0';    
+ 112   1        j=0;
+ 113   1              for(i=0;i<max(len1,len2);i++)
+ 114   1              {
+ 115   2          an1[i]-=an2[i];
+ 116   2          if(an1[i]<0)
+C51 COMPILER V9.54   MAIN                                                                  06/22/2024 20:27:36 PAGE 3   
+
+ 117   2                              {
+ 118   3              an1[i]+=10;
+ 119   3              an1[i+1]--;
+ 120   3            }
+ 121   2                              an1[i]+='0';
+ 122   2                      }
+ 123   1              i=strlen(an1)-1;   
+ 124   1              while(an1[i]=='0')i--;    //Խȥ˗λ0
+ 125   1              memset(out,0,MAXN);
+ 126   1              for(;i>=0;i--)
+ 127   1              {
+ 128   2                      out[j]=an1[i];
+ 129   2                      j++;
+ 130   2              }
+ 131   1      }
+ 132          
+ 133          void mulx(u8 *s1,u8 *s2,u8 out[])
+ 134          {
+ 135   1              u16 c[40]=0;
+ 136   1              char an1[MAXN]=0;
+ 137   1        char an2[MAXN]=0;
+ 138   1              int len1=strlen(s1);
+ 139   1              int len2=strlen(s2);
+ 140   1        int len=len1+len2;
+ 141   1              char i,j=0;
+ 142   1              
+ 143   1              for(i=len1-1;i>=0;i--) an1[j++]=s1[i]-'0';     
+ 144   1              j=0;
+ 145   1        for(i=len2-1;i>=0;i--) an2[j++]=s2[i]-'0';    
+ 146   1      
+ 147   1                      for(i=0;i<len1;i++)
+ 148   1              {
+ 149   2                      for(j=0;j<len2;j++)
+ 150   2                              c[i+j]+=an1[i]*an2[j];   
+ 151   2              }
+ 152   1              for(i=0;i<len;i++)
+ 153   1              {    
+ 154   2                              if(c[i]>=10)
+ 155   2                              {
+ 156   3                                      c[i+1]+=c[i]/10;
+ 157   3                                      c[i]%=10;
+ 158   3                              }
+ 159   2                              c[i]+='0';
+ 160   2                      }  
+ 161   1              j=0;
+ 162   1              i=len-1;   
+ 163   1              if(c[i]=='0')i--;    //Խȥ˗λ0
+ 164   1              for(;i>=0;i--)
+ 165   1              {
+ 166   2                      out[j]=c[i];
+ 167   2                      j++;
+ 168   2              }
+ 169   1      }
+*** ERROR C241 IN LINE 169 OF main.c: '_mulx': auto segment too large
+ 170          
+ 171          
+ 172          void divx(u8 *s1,u8 *s2,u8 out1[])
+ 173          {
+ 174   1              u8 i,j;
+ 175   1               char an1[MAXN]=0;
+ 176   1         char an2[MAXN]=0;
+ 177   1               char an3[MAXN]=0;
+C51 COMPILER V9.54   MAIN                                                                  06/22/2024 20:27:36 PAGE 4   
+
+ 178   1               char an4[MAXN]=0;
+ 179   1                       
+ 180   1               int len,len1,len2;
+ 181   1         if(com(s1,s2)==0){
+ 182   2              out1[0]='1';
+ 183   2         }
+ 184   1         else if(com(s1,s2)<0){
+ 185   2                          len=strlen(s1);
+ 186   2               out1[0]='0';
+ 187   2         }
+ 188   1         else
+ 189   1              {       
+ 190   2                         i=0;while(s1[i]=='0')i++;j=0;              //Խȥ˗λ0
+ 191   2                               for(;i<strlen(s1);i++)an1[j++]=s1[i];
+ 192   2                         
+ 193   2                               while(com(an1,s2)>=0)
+ 194   2                                       {
+ 195   3                                                memset(an2,0,MAXN);
+ 196   3                                                i=0;while(s2[i]=='0')i++;j=0;             //Խȥ˗λ0
+ 197   3                                                for(;i<strlen(s2);i++)an2[j++]=s2[i];
+ 198   3                                                len1=strlen(an1)-strlen(an2)-1;
+ 199   3                                                len2=strlen(an2);
+ 200   3                                                      for(i=0;i<len1;i++)an2[len2+i]='0';                             
+ 201   3                                                while(com(an1,an2)>=0)
+ 202   3                                                      {                                                
+ 203   4                                                              subx(an1,an2,an1);
+ 204   4                                                              addx(an3,"1",an3);      
+ 205   4                                                      }
+ 206   3                                                      len2=strlen(an3);
+ 207   3                                                      for(i=0;i<len1;i++)an3[len2+i]='0';                                                     
+ 208   3                  addx(an4,an3,an4);
+ 209   3                                                      memset(an3,0,MAXN);
+ 210   3               } 
+ 211   2      
+ 212   2                              len=strlen(an4);
+ 213   2                              for(i=0;i<len;i++)out1[i]=an4[i];
+ 214   2         }
+ 215   1      }
+ 216          
+ 217          
+ 218          
+ 219          void dat_add(u8 symb0,u8 pot0,u8 s0[],u8 symb1,u8 pot1,u8 s1[],u8 out[])       //ػۅìС˽λ˽ì˽ߝؖػ�
+             -�   symb=0 Ϊֽ˽ ״֮Ϊغ˽
+ 220          {
+ 221   1              
+ 222   1              char i;
+ 223   1              u8 len;
+ 224   1              u8 sout[MAXN]=0;
+ 225   1              u8 sout1[MAXN]=0;
+ 226   1              if(symb0 == symb1)
+ 227   1              {
+ 228   2                      if(pot0==0 && pot1==0)
+ 229   2                      {
+ 230   3                              addx(s0,s1,sout1);
+ 231   3                      }
+ 232   2                      else if(pot0>=pot1)
+ 233   2                      {
+ 234   3                              len = strlen(s1);
+ 235   3                              for(i=0;i<pot0-pot1;i++) s1[len+i] = '0';                      //С˽֣הǫ
+ 236   3                              addx(s0,s1,sout);
+ 237   3                              
+ 238   3                              len = strlen(sout); 
+C51 COMPILER V9.54   MAIN                                                                  06/22/2024 20:27:36 PAGE 5   
+
+ 239   3                      
+ 240   3                              for(i=0;i<len-pot0;i++)sout1[i]=sout[i];                       //С˽֣ǰք˽
+ 241   3                              sout1[len-pot0]='.';                                       //ͭݓС˽֣
+ 242   3                              for(i=len-pot0;i<len;i++)sout1[i+1]=sout[i];                //С˽֣۳ք˽
+ 243   3                      }
+ 244   2                      else if(pot1>pot0)
+ 245   2                      {
+ 246   3                              len = strlen(s0);
+ 247   3                              for(i=0;i<pot1-pot0;i++) s0[len+i] = '0';                      //С˽֣הǫ
+ 248   3                              addx(s0,s1,sout);
+ 249   3                              
+ 250   3                              len = strlen(sout);                                     
+ 251   3                              for(i=0;i<len-pot1;i++)sout1[i]=sout[i];                       //С˽֣ǰք˽
+ 252   3                              sout1[len-pot1]='.';                                       //ͭݓС˽֣
+ 253   3                              for(i=len-pot1;i<len;i++)sout1[i+1]=sout[i];                //С˽֣۳ք˽
+ 254   3                      }
+ 255   2                      
+ 256   2                      len = strlen(sout1);
+ 257   2                      if(symb0 == 1)
+ 258   2                      {
+ 259   3                              out[0]='-';                                                //ͭݓغۅ
+ 260   3                              for(i=0;i<len;i++) out[i+1]=sout1[i];
+ 261   3                      }
+ 262   2                      else for(i=0;i<len;i++) out[i]=sout1[i];
+ 263   2              }
+ 264   1              
+ 265   1              else if(symb0>symb1)  //֚һٶΪغ˽
+ 266   1                      {
+ 267   2                              if(pot0==0 && pot1==0)
+ 268   2                              {
+ 269   3                                              if(com(s0,s1)==1)         //֚һٶք˽ֵճԚ֚׾ٶ
+ 270   3                                              {
+ 271   4                                                      subx(s0,s1,sout1);
+ 272   4                                                      len = strlen(sout1);    
+ 273   4                                                      out[0]='-';   
+ 274   4                                                      for(i=0;i<len;i++) out[i+1]=sout1[i];
+ 275   4                                                      
+ 276   4                                              }
+ 277   3                                              
+ 278   3                                              else if(com(s0,s1)<=0)
+ 279   3                                              {
+ 280   4                                                      subx(s1,s0,sout1);
+ 281   4                                                      len = strlen(sout1);
+ 282   4                                                      for(i=0;i<len;i++) out[i]=sout1[i];
+ 283   4                                              }
+ 284   3                                      }
+ 285   2                              
+ 286   2                              
+ 287   2                              
+ 288   2                              else if(pot0>=pot1)
+ 289   2                              {
+ 290   3                                      len = strlen(s1);
+ 291   3                          for(i=0;i<pot0-pot1;i++) s1[len+i] = '0';                  //С˽֣הǫ
+ 292   3                                      if(com(s0,s1)==1)         //֚һٶք˽ֵճԚ֚׾ٶ
+ 293   3                                              {
+ 294   4                                                      subx(s0,s1,sout);
+ 295   4                                                      len = strlen(sout); 
+ 296   4                      
+ 297   4                                                      for(i=0;i<len-pot0;i++)sout1[i]=sout[i];                       //С˽֣ǰք˽
+ 298   4                                                      sout1[len-pot0]='.';                                       //ͭݓС˽֣
+ 299   4                                                      for(i=len-pot0;i<len;i++)sout1[i+1]=sout[i];    
+ 300   4                                                      
+C51 COMPILER V9.54   MAIN                                                                  06/22/2024 20:27:36 PAGE 6   
+
+ 301   4                                                      len = strlen(sout1); 
+ 302   4                                                      out[0]='-';   
+ 303   4                                                      for(i=0;i<len;i++) out[i+1]=sout1[i];
+ 304   4                                              }
+ 305   3                                              else if(com(s0,s1)<=0)
+ 306   3                                              {
+ 307   4                                                      subx(s1,s0,sout);
+ 308   4                                                      len = strlen(sout);
+ 309   4                                                      
+ 310   4                                                      for(i=0;i<len-pot0;i++)sout1[i]=sout[i];                       //С˽֣ǰք˽
+ 311   4                                                      sout1[len-pot0]='.';                                       //ͭݓС˽֣
+ 312   4                                                      for(i=len-pot0;i<len;i++)sout1[i+1]=sout[i];
+ 313   4                                                      
+ 314   4                                                      len = strlen(sout1);
+ 315   4                                                      for(i=0;i<len;i++) out[i]=sout1[i];
+ 316   4                                              }
+ 317   3                              }
+ 318   2                              
+ 319   2                                      else if(pot0<pot1)
+ 320   2                              {
+ 321   3                                      len = strlen(s0);
+ 322   3                          for(i=0;i<pot1-pot0;i++) s0[len+i] = '0';                  //С˽֣הǫ
+ 323   3                                      if(com(s0,s1)==1)         //֚һٶք˽ֵճԚ֚׾ٶ
+ 324   3                                              {
+ 325   4                                                      subx(s0,s1,sout);
+ 326   4                                                      len = strlen(sout); 
+ 327   4                      
+ 328   4                                                      for(i=0;i<len-pot1;i++)sout1[i]=sout[i];                       //С˽֣ǰք˽
+ 329   4                                                      sout1[len-pot1]='.';                                       //ͭݓС˽֣
+ 330   4                                                      for(i=len-pot1;i<len;i++)sout1[i+1]=sout[i];    
+ 331   4                                                      
+ 332   4                                                      len = strlen(sout1); 
+ 333   4                                                      out[0]='-';   
+ 334   4                                                      for(i=0;i<len;i++) out[i+1]=sout1[i];
+ 335   4                                              }
+ 336   3                                              else if(com(s0,s1)<=0)
+ 337   3                                              {
+ 338   4                                                      subx(s1,s0,sout);
+ 339   4                                                      len = strlen(sout);
+ 340   4                                                      
+ 341   4                                                      for(i=0;i<len-pot1;i++)sout1[i]=sout[i];                       //С˽֣ǰք˽
+ 342   4                                                      sout1[len-pot1]='.';                                       //ͭݓС˽֣
+ 343   4                                                      for(i=len-pot1;i<len;i++)sout1[i+1]=sout[i];
+ 344   4                                                      
+ 345   4                                                      len = strlen(sout1);
+ 346   4                                                      for(i=0;i<len;i++) out[i]=sout1[i];
+ 347   4                                              }
+ 348   3                              }
+ 349   2      
+ 350   2                      }
+ 351   1                      
+ 352   1              else if(symb0<symb1)  //֚2ٶΪغ˽
+ 353   1                      {
+ 354   2                              if(pot0==0 && pot1==0)
+ 355   2                              {
+ 356   3                                      if(com(s0,s1)>=0)         //֚һٶք˽ֵճԚ֚׾ٶ
+ 357   3                                      {
+ 358   4                                              subx(s0,s1,sout1);
+ 359   4                                              len = strlen(sout1);
+ 360   4                                              for(i=0;i<len;i++) out[i]=sout1[i];
+ 361   4                                      }
+ 362   3                                      else if(com(s0,s1)==-1)
+C51 COMPILER V9.54   MAIN                                                                  06/22/2024 20:27:36 PAGE 7   
+
+ 363   3                                      {
+ 364   4                                              subx(s1,s0,sout1);
+ 365   4                                              len = strlen(sout1);
+ 366   4                                              out[0]='-';   
+ 367   4                                              for(i=0;i<len;i++) out[i+1]=sout1[i];                                   
+ 368   4                                      }
+ 369   3                              }
+ 370   2                              
+ 371   2                                      
+ 372   2                              else if(pot0>=pot1)
+ 373   2                              {
+ 374   3                                      len = strlen(s1);
+ 375   3                          for(i=0;i<pot0-pot1;i++) s1[len+i] = '0';                  //С˽֣הǫ
+ 376   3                                      if(com(s0,s1)>=0)         //֚һٶք˽ֵճԚ֚׾ٶ
+ 377   3                                              {
+ 378   4                                                      subx(s0,s1,sout);
+ 379   4                                                      len = strlen(sout); 
+ 380   4                      
+ 381   4                                                      for(i=0;i<len-pot0;i++)sout1[i]=sout[i];                       //С˽֣ǰք˽
+ 382   4                                                      sout1[len-pot0]='.';                                       //ͭݓС˽֣
+ 383   4                                                      for(i=len-pot0;i<len;i++)sout1[i+1]=sout[i];    
+ 384   4                                                      
+ 385   4                                                      len = strlen(sout1);  
+ 386   4                                                      for(i=0;i<len;i++) out[i]=sout1[i];
+ 387   4                                              }
+ 388   3                                              else if(com(s0,s1)==-1)
+ 389   3                                              {
+ 390   4                                                      subx(s1,s0,sout);
+ 391   4                                                      len = strlen(sout);
+ 392   4                                                      
+ 393   4                                                      for(i=0;i<len-pot0;i++)sout1[i]=sout[i];                       //С˽֣ǰք˽
+ 394   4                                                      sout1[len-pot0]='.';                                       //ͭݓС˽֣
+ 395   4                                                      for(i=len-pot0;i<len;i++)sout1[i+1]=sout[i];
+ 396   4                                                      
+ 397   4                                                      len = strlen(sout1);
+ 398   4                                                      out[0]='-';
+ 399   4                                                      for(i=0;i<len;i++) out[i+1]=sout1[i];
+ 400   4                                              }
+ 401   3                              }
+ 402   2                              
+ 403   2                                      else if(pot0<pot1)
+ 404   2                              {
+ 405   3                                      len = strlen(s0);
+ 406   3                          for(i=0;i<pot1-pot0;i++) s0[len+i] = '0';                  //С˽֣הǫ
+ 407   3                                      if(com(s0,s1)==1)         //֚һٶք˽ֵճԚ֚׾ٶ
+ 408   3                                              {
+ 409   4                                                      subx(s0,s1,sout);
+ 410   4                                                      len = strlen(sout); 
+ 411   4                      
+ 412   4                                                      for(i=0;i<len-pot1;i++)sout1[i]=sout[i];                       //С˽֣ǰք˽
+ 413   4                                                      sout1[len-pot1]='.';                                       //ͭݓС˽֣
+ 414   4                                                      for(i=len-pot1;i<len;i++)sout1[i+1]=sout[i];    
+ 415   4                                                      
+ 416   4                                                      len = strlen(sout1); 
+ 417   4                                                
+ 418   4                                                      for(i=0;i<len;i++) out[i]=sout1[i];
+ 419   4                                              }
+ 420   3                                              else if(com(s0,s1)<=0)
+ 421   3                                              {
+ 422   4                                                      subx(s1,s0,sout);
+ 423   4                                                      len = strlen(sout);
+ 424   4                                                      
+C51 COMPILER V9.54   MAIN                                                                  06/22/2024 20:27:36 PAGE 8   
+
+ 425   4                                                      for(i=0;i<len-pot1;i++)sout1[i]=sout[i];                       //С˽֣ǰք˽
+ 426   4                                                      sout1[len-pot1]='.';                                       //ͭݓС˽֣
+ 427   4                                                      for(i=len-pot1;i<len;i++)sout1[i+1]=sout[i];
+ 428   4                                                      
+ 429   4                                                      len = strlen(sout1);
+ 430   4                                                      out[0]='-'; 
+ 431   4                                                      for(i=0;i<len;i++) out[i+1]=sout1[i];
+ 432   4                                              }
+ 433   3                              }
+ 434   2                              
+ 435   2                              
+ 436   2                      }
+ 437   1      }
+ 438          
+ 439          
+ 440          void dat_sub(u8 symb0,u8 pot0,u8 s0[],u8 symb1,u8 pot1,u8 s1[],u8 out[])       //ػۅìС˽λ˽ì˽ߝؖػ�
+             -�   symb=0 Ϊֽ˽ ״֮Ϊغ˽  
+ 441          {
+ 442   1      //      //////////////////////////////////////////
+ 443   1      //      
+ 444   1      //      //  a - b = a + -b                  //ݵרַԃݓר֨É
+ 445   1      //      
+ 446   1      //      /////////////////////////////////////////
+ 447   1              dat_add(symb0,pot0,s0,1-symb1,pot1,s1,out);
+ 448   1      }
+ 449          
+ 450          void dat_mul(u8 symb0,u8 pot0,u8 s0[],u8 symb1,u8 pot1,u8 s1[],u8 out[])       //ػۅìС˽λ˽ì˽ߝؖػ�
+             -�   symb=0 Ϊֽ˽ ״֮Ϊغ˽  
+ 451          {
+ 452   1              char i;
+ 453   1              u8 len;
+ 454   1              u8 sout[MAXN*2]=0;
+ 455   1              u8 sout1[MAXN*2]=0;
+ 456   1              
+ 457   1                      if(pot0==0 && pot1==0)
+ 458   1                      {
+ 459   2                              mulx(s0,s1,sout1);
+ 460   2                      }
+ 461   1                      else
+ 462   1                      {
+ 463   2                              mulx(s0,s1,sout);
+ 464   2                              len = strlen(sout);
+ 465   2      
+ 466   2                              for(i=0;i<len-pot0-pot1;i++)sout1[i]=sout[i];                       //С˽֣ǰք˽
+ 467   2                              sout1[len-pot0-pot1]='.';                                       //ͭݓС˽֣
+ 468   2                              for(i=len-pot0-pot1;i<len;i++)sout1[i+1]=sout[i];                //С˽֣۳ք˽
+ 469   2                              
+ 470   2                }
+ 471   1                      
+ 472   1                      len = strlen(sout1);
+ 473   1                      if(symb0 == symb1)
+ 474   1                      {       
+ 475   2                              for(i=0;i<len;i++) out[i]=sout1[i];
+ 476   2                      }
+ 477   1                      else
+ 478   1                      {
+ 479   2                              out[0]='-';                                                //ͭݓغۅ
+ 480   2                              for(i=0;i<len;i++) out[i+1]=sout1[i];
+ 481   2                      }
+ 482   1              
+ 483   1      }
+ 484          
+C51 COMPILER V9.54   MAIN                                                                  06/22/2024 20:27:36 PAGE 9   
+
+ 485          void dat_div(u8 symb0,u8 pot0,u8 s0[],u8 symb1,u8 pot1,u8 s1[],u8 out[])
+ 486          {
+ 487   1              char i=0;
+ 488   1              u8 len;
+ 489   1              u8 sout[15]=0;
+ 490   1              u8 ss[MAXN]=0;
+ 491   1      
+ 492   1              divx("1000000000000000",s1,ss);            //1e15
+ 493   1              len=strlen(ss);
+ 494   1              for(i=0;i<16-len;i++)sout[i]='0';
+ 495   1              strcat(sout,ss);                         //ؖػԮǰĦͭݓ0ì15λӤ׈הǫ
+ 496   1              dat_mul(symb0,pot0,s0,symb1,15-pot1,sout,out); 
+ 497   1              
+ 498   1      }
+ 499          
+ 500          
+ 501          void display_ans(u8 *ans)
+ 502          {
+ 503   1              u8 len=0;
+ 504   1              u8 addr=0xC0;
+ 505   1              if(strstr(ans,"."))
+ 506   1              {
+ 507   2                      while(ans[len]!='.')len++;      
+ 508   2              }
+ 509   1              else 
+ 510   1              {
+ 511   2                      len = strlen(ans);
+ 512   2              }
+ 513   1                      if(len>16)
+ 514   1                      {
+ 515   2                              if(ans[0]=='-')
+ 516   2                              {
+ 517   3                                        LcdWriteCom(addr++);LcdWriteData(ans[0]);
+ 518   3                                              LcdWriteCom(addr++);LcdWriteData(ans[1]);
+ 519   3                                      LcdWriteCom(addr++);LcdWriteData('.');
+ 520   3                                              LcdWriteCom(addr++);LcdWriteData(ans[2]);
+ 521   3                                              LcdWriteCom(addr++);LcdWriteData(ans[3]);
+ 522   3                                              LcdWriteCom(addr++);LcdWriteData(ans[4]);
+ 523   3                                              LcdWriteCom(addr++);LcdWriteData(ans[5]);
+ 524   3                                              LcdWriteCom(addr++);LcdWriteData(ans[6]);
+ 525   3                                              LcdWriteCom(addr++);LcdWriteData(ans[7]);
+ 526   3                                              LcdWriteCom(addr++);LcdWriteData(ans[8]);
+ 527   3                                              LcdWriteCom(addr++);LcdWriteData(ans[9]);
+ 528   3                                              LcdWriteCom(addr++);LcdWriteData(ans[10]);
+ 529   3                                              LcdWriteCom(addr++);LcdWriteData(ans[11]);
+ 530   3                                              LcdWriteCom(addr++);LcdWriteData('e');
+ 531   3                                              LcdWriteCom(addr++);LcdWriteData((len-2)/10 + '0');
+ 532   3                                              LcdWriteCom(addr++);LcdWriteData((len-2)%10 + '0');     
+ 533   3                              }
+ 534   2                              else
+ 535   2                              {
+ 536   3                                              LcdWriteCom(addr++);LcdWriteData(ans[0]);
+ 537   3                                              LcdWriteCom(addr++);LcdWriteData('.');
+ 538   3                                              LcdWriteCom(addr++);LcdWriteData(ans[1]);
+ 539   3                                              LcdWriteCom(addr++);LcdWriteData(ans[2]);
+ 540   3                                              LcdWriteCom(addr++);LcdWriteData(ans[3]);
+ 541   3                                              LcdWriteCom(addr++);LcdWriteData(ans[4]);
+ 542   3                                              LcdWriteCom(addr++);LcdWriteData(ans[5]);
+ 543   3                                              LcdWriteCom(addr++);LcdWriteData(ans[6]);
+ 544   3                                              LcdWriteCom(addr++);LcdWriteData(ans[7]);
+ 545   3                                              LcdWriteCom(addr++);LcdWriteData(ans[8]);
+ 546   3                                              LcdWriteCom(addr++);LcdWriteData(ans[9]);
+C51 COMPILER V9.54   MAIN                                                                  06/22/2024 20:27:36 PAGE 10  
+
+ 547   3                                              LcdWriteCom(addr++);LcdWriteData(ans[10]);
+ 548   3                                              LcdWriteCom(addr++);LcdWriteData(ans[11]);
+ 549   3                                              LcdWriteCom(addr++);LcdWriteData('e');
+ 550   3                                              LcdWriteCom(addr++);LcdWriteData((len-1)/10 + '0');
+ 551   3                                              LcdWriteCom(addr++);LcdWriteData((len-1)%10 + '0');     
+ 552   3                              }
+ 553   2                      }
+ 554   1                      else
+ 555   1                      {
+ 556   2                              LCD_ShowStr(1,ans);
+ 557   2                      }
+ 558   1              
+ 559   1      }
+ 560          
+ 561          
+ 562          void main()
+ 563          {
+ 564   1              char key=0;   //дݼֵ
+ 565   1              u8 i;
+ 566   1        u8    cnt0 = 0,cnt1 = 0;          //ԃԚДʾք˽ߝӤ׈
+ 567   1              u8 dat_cnt0=0,dat_cnt1=0;      //ԃԚ݆̣ք˽ߝӤ׈
+ 568   1              u8 buf[MAXN]={0};
+ 569   1      
+ 570   1              u8 dat_flag = 0;
+ 571   1              u8 symbol=0;   //Ջ̣ػۅ
+ 572   1              
+ 573   1              u8 pot0_flag = 0;           //С˽֣λ׃
+ 574   1              u8 pot1_flag = 0;
+ 575   1              
+ 576   1              u8 neg0 = 0;               //ֽغۅ
+ 577   1              u8 neg1 = 0;
+ 578   1              
+ 579   1              LcdInit();
+ 580   1              LCD_ShowStr(0,"welcome!!!!");
+ 581   1              delay(30000);
+ 582   1              LCD_ShowStr(0,"0          ");
+ 583   1              delay(30000);
+ 584   1              
+ 585   1      //      subx(data0,data1,buf);
+ 586   1      //      LCD_ShowStr(1,buf);
+ 587   1              
+ 588   1              while(1)
+ 589   1              {
+ 590   2                      //LCD_ShowStr(1,show0);
+ 591   2                              key=keyscan();    //ܱȡдݼֵ
+ 592   2                      if(key!=-1)          //ԐдݼдЂ
+ 593   2                      {
+ 594   3                              
+ 595   3                              
+ 596   3                                                                              if(key<12) //дݼֵΪ 0123456789.
+ 597   3                                                                              {
+ 598   4                                                                                                      if(dat_flag==0)
+ 599   4                                                                                                      {
+ 600   5                                                                                                              
+ 601   5                                                                                                                    if(key == fuh && cnt0==0)
+ 602   5                                                                                                                                      {
+ 603   6                                                                                                                                              show0[cnt0++] = '-';
+ 604   6                                                                                                                                              neg0=1;
+ 605   6                                                                                                                                      }
+ 606   5                                                                                                                                      else if(key == pot)
+ 607   5                                                                                                                                      {
+ 608   6                                                                                                                                                                      if(strstr(show0,".")==0 && cnt0!=0)     //ԐС˽֣Ңһˇ˽ߝ֚һλ
+C51 COMPILER V9.54   MAIN                                                                  06/22/2024 20:27:36 PAGE 11  
+
+ 609   6                                                                                                                                                                      {
+ 610   7                                                                                                                                                                              show0[cnt0++] = '.';
+ 611   7                                                                                                                                                                      }
+ 612   6                                                                                                                                      }
+ 613   5                                                                                                                                      else if(key != fuh)
+ 614   5                                                                                                                                      {
+ 615   6                                                                                                                                              if(strstr(show0,"."))pot0_flag++;
+ 616   6                                                                                                                                                                      show0[cnt0++] = key + '0';
+ 617   6                                                                                                                                                                      data0[dat_cnt0++] = key + '0';
+ 618   6                                                                                                                                      }
+ 619   5                                                                                                                                      
+ 620   5                                                                                                                                      LCD_ShowStr(0,show0);
+ 621   5                                                                                                      }
+ 622   4                                                                                                      else
+ 623   4                                                                                                      {
+ 624   5                                                                                                                    if(key == fuh && cnt1==0)
+ 625   5                                                                                                                                      {
+ 626   6                                                                                                                                              show1[cnt1++] = '-';
+ 627   6                                                                                                                                              neg1=1;
+ 628   6                                                                                                                                      }
+ 629   5                                                                                                                                      else if(key == pot)
+ 630   5                                                                                                                                      {
+ 631   6                                                                                                                                                                      if(strstr(show1,".")==0 && cnt1!=0)     //ԐС˽֣Ңһˇ˽ߝ֚һλ
+ 632   6                                                                                                                                                                      {
+ 633   7                                                                                                                                                                              show1[cnt1++] = '.';
+ 634   7                                                                                                                                                                      }
+ 635   6                                                                                                                                      }
+ 636   5                                                                                                                                      else if(key != fuh)
+ 637   5                                                                                                                                      {
+ 638   6                                                                                                                                                    if(strstr(show1,"."))pot1_flag++;
+ 639   6                                                                                                                                                                      show1[cnt1++] = key + '0';
+ 640   6                                                                                                                                                                      data1[dat_cnt1++] = key + '0';
+ 641   6                                                                                                                                      }
+ 642   5                                                                                                                                      
+ 643   5                                                                                                                                      LCD_ShowStr(1,show1);
+ 644   5                                                                                                      }
+ 645   4                                                                              }
+ 646   3                                                                              else if(key>12 && dat_cnt0>0)              //Ջ̣ػۅдЂҢȒ˽ߝ0Ԑ˽ߝ
+ 647   3                                                                              {
+ 648   4                                                                                                              symbol = key;
+ 649   4                                                                                           switch(symbol)
+ 650   4                                                                                                       {
+ 651   5                                                                                                               case add:LcdWriteCom(0x8f);LcdWriteData('+');break;
+ 652   5                                                                                                         case sub:LcdWriteCom(0x8f);LcdWriteData('-');break;
+ 653   5                                                                                                               case mul:LcdWriteCom(0x8f);LcdWriteData('*');break;
+ 654   5                                                                                                               case div:LcdWriteCom(0x8f);LcdWriteData('/');break;
+ 655   5                                                                                                       }
+ 656   4                                                                                                              dat_flag = 1;                 //ҭʾكˤɫ֚׾ٶ˽
+ 657   4                                                                              }
+ 658   3                                                                              else if(key==equ && dat_cnt1>0)  
+ 659   3                                                                              {                       //дЂֈԚػۅ
+ 660   4                                                                                                                      switch(symbol)
+ 661   4                                                                                                                      {
+ 662   5                                                                                                                              case add:dat_add(neg0,pot0_flag,data0,neg1,pot1_flag,data1,buf);break;
+ 663   5                                                                                                                              case sub:dat_sub(neg0,pot0_flag,data0,neg1,pot1_flag,data1,buf);break;
+ 664   5                                                                                                                              case mul:dat_mul(neg0,pot0_flag,data0,neg1,pot1_flag,data1,buf);break;
+ 665   5                                                                                                                              case div:dat_div(neg0,pot0_flag,data0,neg1,pot1_flag,data1,buf);break;
+ 666   5                                                                                                                      //      case sub:subx(data0,data1,buf);break;
+ 667   5                                                                                                                      //      case add:addx(data0,data1,buf);break;
+ 668   5                                                                                                                      //      case div:divx(data0,data1,buf,buf1);break;
+ 669   5                                                                                                                      }
+ 670   4                                                                                                                      LCD_ShowStr(0,"ans=            ");
+C51 COMPILER V9.54   MAIN                                                                  06/22/2024 20:27:36 PAGE 12  
+
+ 671   4                                                                                                                      LCD_ShowStr(1,"                ");
+ 672   4                                                                                                                      display_ans(buf);
+ 673   4                                                                              }
+ 674   3                                                                                                      
+ 675   3                                                                                                      
+ 676   3                                                                                                      
+ 677   3                      }
+ 678   2                      if(key == clr)             //ȥԽ
+ 679   2                      {
+ 680   3                              for(i=0;i<MAXN;i++)show0[i]=0;
+ 681   3                              for(i=0;i<MAXN;i++)show1[i]=0;
+ 682   3                              for(i=0;i<MAXN;i++)data0[i]=0;
+ 683   3                              for(i=0;i<MAXN;i++)data1[i]=0;
+ 684   3                              for(i=0;i<MAXN;i++)buf[i]=0;
+ 685   3                              cnt0 = 0;cnt1 = 0;
+ 686   3                              dat_cnt0=0;dat_cnt1=0;
+ 687   3                              dat_flag = 0;
+ 688   3                              symbol=0;   
+ 689   3                              pot0_flag = 0;
+ 690   3                              pot1_flag = 0;
+ 691   3                        neg0 = 0;
+ 692   3                  neg1 = 0;
+ 693   3                              LCD_ShowStr(0,"0               ");
+ 694   3                              LCD_ShowStr(1,"                ");
+ 695   3                      }
+ 696   2              }
+ 697   1      }
+ 698          
+ 699          
+ 700          void LCD_ShowStr(char addr,char * str)
+ 701          {
+ 702   1              char i=0;
+ 703   1              if(addr == 0)LcdWriteCom(0x80);
+ 704   1              else if(addr == 1)LcdWriteCom(0xC0);
+ 705   1              while(*str != '\0')
+ 706   1              {
+ 707   2                      LcdWriteData(*str);
+ 708   2                      str++;
+ 709   2              }
+ 710   1      }
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  1 ERROR(S)

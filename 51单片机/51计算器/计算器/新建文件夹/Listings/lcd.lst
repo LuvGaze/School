@@ -1,0 +1,100 @@
+C51 COMPILER V9.54   LCD                                                                   06/22/2024 20:27:16 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE LCD
+OBJECT MODULE PLACED IN .\Objects\lcd.obj
+COMPILER INVOKED BY: D:\Keil C51\C51\BIN\C51.EXE lcd.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\lcd.
+                    -lst) OBJECT(.\Objects\lcd.obj)
+
+line level    source
+
+   1          #include "lcd.h"
+   2          
+   3          /*******************************************************************************
+   4          * گ ˽ Ļ         : Lcd1602_Delay1ms
+   5          * گ˽٦Ŝ                 : ғʱگ˽ìғʱ1ms
+   6          * ˤ    ɫ         : c
+   7          * ˤ    Զ         : Ϟ
+   8          * ˵    Ļ         : كگ˽ˇ՚12MHZާֱЂì12ؖƵեƬܺքғʱc
+   9          *******************************************************************************/
+  10          
+  11          void Lcd1602_Delay1ms(uint c)   //ϳӮ 0us
+  12          {
+  13   1          uchar a,b;
+  14   1              for (; c>0; c--)
+  15   1              {
+  16   2                       for (b=50;b>0;b--)
+  17   2                       {
+  18   3                              for(a=1;a>0;a--);
+  19   3                       }      
+  20   2              }
+  21   1              
+  22   1      }
+  23          
+  24          void LcdWriteCom(uchar com)       //дɫļ®
+  25          {
+  26   1              LCD1602_E = 0;     //ʹŜ
+  27   1              LCD1602_RS = 0;    //ѡձע̍ļ®
+  28   1              LCD1602_RW = 0;    //ѡձдɫ
+  29   1              
+  30   1              LCD1602_DATAPINS = com;     //؅ɫļ®
+  31   1              Lcd1602_Delay1ms(1);            //ֈս˽ߝψ֨
+  32   1      
+  33   1              LCD1602_E = 1;            //дɫʱѲ
+  34   1              Lcd1602_Delay1ms(5);      //ѣԖʱݤ
+  35   1              LCD1602_E = 0;
+  36   1      }
+  37          
+  38          /*******************************************************************************
+  39          * گ ˽ Ļ         : LcdWriteData
+  40          * گ˽٦Ŝ                 : вLCDдɫһٶؖޚք˽ߝ
+  41          * ˤ    ɫ         : dat
+  42          * ˤ    Զ         : Ϟ
+  43          *******************************************************************************/                   
+  44            
+  45          void LcdWriteData(uchar dat)                    //дɫ˽ߝ
+  46          {
+  47   1              LCD1602_E = 0;  //ʹŜȥ£
+  48   1              LCD1602_RS = 1; //ѡձˤɫ˽ߝ
+  49   1              LCD1602_RW = 0; //ѡձдɫ
+  50   1      
+  51   1              LCD1602_DATAPINS = dat; //дɫ˽ߝ
+  52   1              Lcd1602_Delay1ms(1);
+  53   1      
+  54   1              LCD1602_E = 1;   //дɫʱѲ
+C51 COMPILER V9.54   LCD                                                                   06/22/2024 20:27:16 PAGE 2   
+
+  55   1              Lcd1602_Delay1ms(5);   //ѣԖʱݤ
+  56   1              LCD1602_E = 0;
+  57   1      }
+  58          
+  59          /*******************************************************************************
+  60          * گ ˽ Ļ       : LcdInit()
+  61          * گ˽٦Ŝ               : ԵʼۯLCDǁ
+  62          * ˤ    ɫ       : Ϟ
+  63          * ˤ    Զ       : Ϟ
+  64          *******************************************************************************/                   
+  65          
+  66          void LcdInit()                                            //LCDԵʼۯؓԌѲ
+  67          {
+  68   1              LcdWriteCom(0x38);  //ߪДʾ
+  69   1              LcdWriteCom(0x0c);  //ߪДʾһДʾڢҪ
+  70   1              LcdWriteCom(0x06);  //дһٶָ֫ݓ1
+  71   1              LcdWriteCom(0x01);  //ȥǁ
+  72   1              LcdWriteCom(0x80);  //ʨ׃˽ߝָ֫ǰ֣
+  73   1      }
+  74          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     87    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
