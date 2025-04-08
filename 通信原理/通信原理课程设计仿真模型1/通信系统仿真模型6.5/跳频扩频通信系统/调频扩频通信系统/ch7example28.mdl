@@ -1,0 +1,945 @@
+Model {
+  Name			  "ch7example28"
+  Version		  5.0
+  SaveDefaultBlockParams  on
+  SampleTimeColors	  off
+  LibraryLinkDisplay	  "none"
+  WideLines		  off
+  ShowLineDimensions	  off
+  ShowPortDataTypes	  off
+  ShowLoopsOnError	  on
+  IgnoreBidirectionalLines off
+  ShowStorageClass	  off
+  ExecutionOrder	  off
+  RecordCoverage	  off
+  CovPath		  "/"
+  CovSaveName		  "covdata"
+  CovMetricSettings	  "dw"
+  CovNameIncrementing	  off
+  CovHtmlReporting	  on
+  covSaveCumulativeToWorkspaceVar on
+  CovSaveSingleToWorkspaceVar on
+  CovCumulativeVarName	  "covCumulativeData"
+  CovCumulativeReport	  off
+  DataTypeOverride	  "UseLocalSettings"
+  MinMaxOverflowLogging	  "UseLocalSettings"
+  MinMaxOverflowArchiveMode "Overwrite"
+  BlockNameDataTip	  off
+  BlockParametersDataTip  off
+  BlockDescriptionStringDataTip	off
+  ToolBar		  on
+  StatusBar		  on
+  BrowserShowLibraryLinks off
+  BrowserLookUnderMasks	  off
+  Created		  "Sun Sep 09 12:49:11 2007"
+  UpdateHistory		  "UpdateHistoryNever"
+  ModifiedByFormat	  "%<Auto>"
+  LastModifiedBy	  "shaoyubin"
+  ModifiedDateFormat	  "%<Auto>"
+  LastModifiedDate	  "Mon Sep 10 15:56:35 2007"
+  ModelVersionFormat	  "1.%<AutoIncrement:19>"
+  ConfigurationManager	  "None"
+  SimParamPage		  "Solver"
+  LinearizationMsg	  "none"
+  Profile		  off
+  ParamWorkspaceSource	  "MATLABWorkspace"
+  AccelSystemTargetFile	  "accel.tlc"
+  AccelTemplateMakefile	  "accel_default_tmf"
+  AccelMakeCommand	  "make_rtw"
+  TryForcingSFcnDF	  off
+  ExtModeMexFile	  "ext_comm"
+  ExtModeBatchMode	  off
+  ExtModeTrigType	  "manual"
+  ExtModeTrigMode	  "normal"
+  ExtModeTrigPort	  "1"
+  ExtModeTrigElement	  "any"
+  ExtModeTrigDuration	  1000
+  ExtModeTrigHoldOff	  0
+  ExtModeTrigDelay	  0
+  ExtModeTrigDirection	  "rising"
+  ExtModeTrigLevel	  0
+  ExtModeArchiveMode	  "off"
+  ExtModeAutoIncOneShot	  off
+  ExtModeIncDirWhenArm	  off
+  ExtModeAddSuffixToVar	  off
+  ExtModeWriteAllDataToWs off
+  ExtModeArmWhenConnect	  on
+  ExtModeSkipDownloadWhenConnect off
+  ExtModeLogAll		  on
+  ExtModeAutoUpdateStatusClock on
+  BufferReuse		  on
+  RTWExpressionDepthLimit 5
+  SimulationMode	  "normal"
+  Solver		  "ode45"
+  SolverMode		  "Auto"
+  StartTime		  "0.0"
+  StopTime		  "1000.0"
+  MaxOrder		  5
+  MaxStep		  "auto"
+  MinStep		  "auto"
+  MaxNumMinSteps	  "-1"
+  InitialStep		  "auto"
+  FixedStep		  "1e-6"
+  RelTol		  "1e-5"
+  AbsTol		  "auto"
+  OutputOption		  "RefineOutputTimes"
+  OutputTimes		  "[]"
+  Refine		  "1"
+  LoadExternalInput	  off
+  ExternalInput		  "[t, u]"
+  LoadInitialState	  off
+  InitialState		  "xInitial"
+  SaveTime		  on
+  TimeSaveName		  "tout"
+  SaveState		  off
+  StateSaveName		  "xout"
+  SaveOutput		  on
+  OutputSaveName	  "yout"
+  SaveFinalState	  off
+  FinalStateName	  "xFinal"
+  SaveFormat		  "Array"
+  Decimation		  "1"
+  LimitDataPoints	  on
+  MaxDataPoints		  "1000"
+  SignalLoggingName	  "sigsOut"
+  ConsistencyChecking	  "none"
+  ArrayBoundsChecking	  "none"
+  AlgebraicLoopMsg	  "warning"
+  BlockPriorityViolationMsg "warning"
+  MinStepSizeMsg	  "warning"
+  InheritedTsInSrcMsg	  "warning"
+  DiscreteInheritContinuousMsg "warning"
+  MultiTaskRateTransMsg	  "error"
+  SingleTaskRateTransMsg  "none"
+  CheckForMatrixSingularity "none"
+  IntegerOverflowMsg	  "warning"
+  Int32ToFloatConvMsg	  "warning"
+  ParameterDowncastMsg	  "error"
+  ParameterOverflowMsg	  "error"
+  ParameterPrecisionLossMsg "warning"
+  UnderSpecifiedDataTypeMsg "none"
+  UnnecessaryDatatypeConvMsg "none"
+  VectorMatrixConversionMsg "none"
+  InvalidFcnCallConnMsg	  "error"
+  SignalLabelMismatchMsg  "none"
+  UnconnectedInputMsg	  "warning"
+  UnconnectedOutputMsg	  "warning"
+  UnconnectedLineMsg	  "warning"
+  SfunCompatibilityCheckMsg "none"
+  RTWInlineParameters	  off
+  BlockReductionOpt	  on
+  BooleanDataType	  on
+  ConditionallyExecuteInputs on
+  ParameterPooling	  on
+  OptimizeBlockIOStorage  on
+  ZeroCross		  on
+  AssertionControl	  "UseLocalSettings"
+  ProdHWDeviceType	  "Microprocessor"
+  ProdHWWordLengths	  "8,16,32,32"
+  RTWSystemTargetFile	  "grt.tlc"
+  RTWTemplateMakefile	  "grt_default_tmf"
+  RTWMakeCommand	  "make_rtw"
+  RTWGenerateCodeOnly	  off
+  RTWRetainRTWFile	  off
+  TLCProfiler		  off
+  TLCDebug		  off
+  TLCCoverage		  off
+  TLCAssertion		  off
+  BlockDefaults {
+    Orientation		    "right"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    NamePlacement	    "normal"
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    ShowName		    on
+  }
+  BlockParameterDefaults {
+    Block {
+      BlockType		      Constant
+      Value		      "1"
+      VectorParams1D	      on
+      ShowAdditionalParam     off
+      OutDataTypeMode	      "Inherit from 'Constant value'"
+      OutDataType	      "sfix(16)"
+      ConRadixGroup	      "Use specified scaling"
+      OutScaling	      "2^0"
+    }
+    Block {
+      BlockType		      DataTypeConversion
+      DataType		      "auto"
+      SaturateOnIntegerOverflow	on
+    }
+    Block {
+      BlockType		      Display
+      Format		      "short"
+      Decimation	      "10"
+      Floating		      off
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      FrameConversion
+      OutFrame		      "Frame-based"
+    }
+    Block {
+      BlockType		      Ground
+    }
+    Block {
+      BlockType		      Inport
+      Port		      "1"
+      PortDimensions	      "-1"
+      SampleTime	      "-1"
+      ShowAdditionalParam     off
+      LatchInput	      off
+      DataType		      "auto"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      Interpolate	      on
+    }
+    Block {
+      BlockType		      Math
+      Operator		      "exp"
+      OutputSignalType	      "auto"
+    }
+    Block {
+      BlockType		      Outport
+      Port		      "1"
+      OutputWhenDisabled      "held"
+      InitialOutput	      "[]"
+    }
+    Block {
+      BlockType		      Product
+      Inputs		      "2"
+      Multiplication	      "Element-wise(.*)"
+      ShowAdditionalParam     off
+      InputSameDT	      on
+      OutDataTypeMode	      "Same as first input"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+    }
+    Block {
+      BlockType		      RelationalOperator
+      Operator		      ">="
+      ShowAdditionalParam     off
+      InputSameDT	      on
+      LogicOutDataTypeMode    "Logical (see Advanced Sim. Parameters)"
+      LogicDataType	      "uint(8)"
+      ZeroCross		      on
+    }
+    Block {
+      BlockType		      Scope
+      Floating		      off
+      ModelBased	      off
+      TickLabels	      "OneTimeTick"
+      ZoomMode		      "on"
+      Grid		      "on"
+      TimeRange		      "auto"
+      YMin		      "-5"
+      YMax		      "5"
+      SaveToWorkspace	      off
+      SaveName		      "ScopeData"
+      LimitDataPoints	      on
+      MaxDataPoints	      "5000"
+      Decimation	      "1"
+      SampleInput	      off
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      "S-Function"
+      FunctionName	      "system"
+      PortCounts	      "[]"
+      SFunctionModules	      "''"
+    }
+    Block {
+      BlockType		      Sin
+      SineType		      "Time based"
+      Amplitude		      "1"
+      Bias		      "0"
+      Frequency		      "1"
+      Phase		      "0"
+      Samples		      "10"
+      Offset		      "0"
+      SampleTime	      "-1"
+      VectorParams1D	      on
+    }
+    Block {
+      BlockType		      SubSystem
+      ShowPortLabels	      on
+      Permissions	      "ReadWrite"
+      RTWSystemCode	      "Auto"
+      RTWFcnNameOpts	      "Auto"
+      RTWFileNameOpts	      "Auto"
+      SimViewingDevice	      off
+      DataTypeOverride	      "UseLocalSettings"
+      MinMaxOverflowLogging   "UseLocalSettings"
+    }
+    Block {
+      BlockType		      Sum
+      IconShape		      "rectangular"
+      Inputs		      "++"
+      ShowAdditionalParam     off
+      InputSameDT	      on
+      OutDataTypeMode	      "Same as first input"
+      OutDataType	      "sfix(16)"
+      OutScaling	      "2^0"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+    }
+    Block {
+      BlockType		      ZeroOrderHold
+      SampleTime	      "1"
+    }
+  }
+  AnnotationDefaults {
+    HorizontalAlignment	    "center"
+    VerticalAlignment	    "middle"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+  }
+  LineDefaults {
+    FontName		    "Helvetica"
+    FontSize		    9
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+  }
+  System {
+    Name		    "ch7example28"
+    Location		    [27, 275, 1008, 697]
+    Open		    on
+    ModelBrowserVisibility  off
+    ModelBrowserWidth	    200
+    ScreenColor		    "white"
+    PaperOrientation	    "landscape"
+    PaperPositionMode	    "auto"
+    PaperType		    "A4"
+    PaperUnits		    "centimeters"
+    ZoomFactor		    "100"
+    ReportName		    "simulink-default.rpt"
+    Block {
+      BlockType		      Reference
+      Name		      "AWGN\nChannel"
+      Ports		      [1, 1]
+      Position		      [320, 104, 400, 146]
+      FontSize		      10
+      SourceBlock	      "commchan2/AWGN\nChannel"
+      SourceType	      "AWGN Channel"
+      seed		      "67"
+      noiseMode		      "Variance from mask"
+      EsNodB		      "10"
+      SNRdB		      "10"
+      Ps		      "1"
+      Tsym		      "1"
+      variance		      "1"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Bernoulli Binary\nGenerator"
+      Ports		      [0, 1]
+      Position		      [30, 93, 110, 137]
+      FontName		      "Arial"
+      FontSize		      10
+      SourceBlock	      "commrandsrc2/Bernoulli Binary\nGenerator"
+      SourceType	      "Bernoulli Binary Generator"
+      P			      "0.5"
+      seed		      "61"
+      Ts		      "1/100"
+      frameBased	      off
+      sampPerFrame	      "1"
+      orient		      off
+    }
+    Block {
+      BlockType		      Display
+      Name		      "Display"
+      Ports		      [1]
+      Position		      [820, 14, 915, 76]
+      FontSize		      10
+      Decimation	      "1"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Error Rate\nCalculation"
+      Ports		      [2, 1]
+      Position		      [720, 17, 795, 68]
+      FontSize		      10
+      SourceBlock	      "commsink2/Error Rate\nCalculation"
+      SourceType	      "Error Rate Calculation"
+      N			      "0"
+      st_delay		      "0"
+      cp_mode		      "Entire frame"
+      subframe		      "[]"
+      PMode		      "Port"
+      WsName		      "ErrorVec"
+      RsMode2		      off
+      stop		      off
+      numErr		      "100"
+      maxBits		      "1e6"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Integer Delay"
+      Ports		      [1, 1]
+      Position		      [530, 14, 585, 46]
+      FontSize		      10
+      SourceBlock	      "dspsigops/Integer Delay"
+      SourceType	      "Integer Delay"
+      delay		      "1"
+      ic		      "0"
+      reset_popup	      "None"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "M-FSK\nDemodulator\nBaseband"
+      Ports		      [1, 1]
+      Position		      [710, 111, 785, 159]
+      FontSize		      10
+      SourceBlock	      "commdigbbndfm2/M-FSK\nDemodulator\nBaseband"
+      SourceType	      "M-FSK Demodulator Baseband"
+      M			      "2"
+      OutType		      "Bit"
+      Dec		      "Binary"
+      freqSep		      "100"
+      numSamp		      "40"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "M-FSK\nModulator\nBaseband"
+      Ports		      [1, 1]
+      Position		      [140, 90, 215, 140]
+      FontSize		      10
+      SourceBlock	      "commdigbbndfm2/M-FSK\nModulator\nBaseband"
+      SourceType	      "M-FSK Modulator Baseband"
+      M			      "2"
+      InType		      "Bit"
+      Enc		      "Binary"
+      freqSep		      "100"
+      phaseType		      "Discontinuous"
+      numSamp		      "40"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "M-FSK\nModulator\nBaseband1"
+      Ports		      [1, 1]
+      Position		      [140, 185, 215, 235]
+      FontSize		      10
+      SourceBlock	      "commdigbbndfm2/M-FSK\nModulator\nBaseband"
+      SourceType	      "M-FSK Modulator Baseband"
+      M			      "32"
+      InType		      "Integer"
+      Enc		      "Binary"
+      freqSep		      "50"
+      phaseType		      "Continuous"
+      numSamp		      "80"
+      Port {
+	PortNumber		1
+	Name			"Ã¯∆µ‘ÿ≤®"
+	TestPoint		off
+	LinearAnalysisOutput	off
+	LinearAnalysisInput	off
+	RTWStorageClass		"Auto"
+	DataLogging		off
+	DataLoggingNameMode	"SignalName"
+	DataLoggingDecimateData	off
+	DataLoggingDecimation	"2"
+	DataLoggingLimitDataPoints off
+	DataLoggingMaxPoints	"5000"
+      }
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "M-FSK\nModulator\nBaseband2"
+      Ports		      [1, 1]
+      Position		      [425, 215, 500, 265]
+      FontSize		      10
+      SourceBlock	      "commdigbbndfm2/M-FSK\nModulator\nBaseband"
+      SourceType	      "M-FSK Modulator Baseband"
+      M			      "32"
+      InType		      "Integer"
+      Enc		      "Binary"
+      freqSep		      "50"
+      phaseType		      "Discontinuous"
+      numSamp		      "80"
+    }
+    Block {
+      BlockType		      Math
+      Name		      "Math\nFunction"
+      Ports		      [1, 1]
+      Position		      [515, 225, 545, 255]
+      Operator		      "conj"
+    }
+    Block {
+      BlockType		      Product
+      Name		      "Product\nÃ¯∆µ"
+      Ports		      [2, 1]
+      Position		      [245, 106, 290, 139]
+      InputSameDT	      off
+    }
+    Block {
+      BlockType		      Product
+      Name		      "Product1\nΩ‚Ã¯"
+      Ports		      [2, 1]
+      Position		      [565, 116, 610, 149]
+      InputSameDT	      off
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "Scope"
+      Ports		      [2]
+      Position		      [605, 41, 635, 74]
+      Orientation	      "left"
+      Location		      [473, 470, 797, 709]
+      Open		      on
+      NumInputPorts	      "2"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+	axes2			"%<SignalLabel>"
+      }
+      List {
+	ListType		SelectedSignals
+	axes1			""
+	axes2			""
+      }
+      TimeRange		      "0.2"
+      YMin		      "-5~-5"
+      YMax		      "5~5"
+      DataFormat	      "StructureWithTime"
+    }
+    Block {
+      BlockType		      Sin
+      Name		      "Sine Wave\nµ•∆µ∏…»≈‘¥"
+      Position		      [340, 175, 370, 205]
+      SineType		      "Time based"
+      Frequency		      "2*pi*150"
+      SampleTime	      "1/4000"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Spectrum\nScope"
+      Ports		      [1]
+      Position		      [650, 75, 685, 125]
+      SourceBlock	      "dspsnks4/Spectrum\nScope"
+      SourceType	      "Spectrum Scope"
+      ScopeProperties	      on
+      Domain		      "Frequency"
+      HorizSpan		      "1"
+      UseBuffer		      on
+      BufferSize	      "1024"
+      Overlap		      "0"
+      inpFftLenInherit	      on
+      FFTlength		      "1024"
+      numAvg		      "500"
+      DisplayProperties	      off
+      AxisGrid		      on
+      Memory		      off
+      FrameNumber	      on
+      AxisLegend	      off
+      AxisZoom		      off
+      OpenScopeAtSimStart     on
+      OpenScopeImmediately    off
+      FigPos		      "[232 258 560 420]"
+      AxisProperties	      off
+      XUnits		      "Hertz"
+      XRange		      "[-Fs/2...Fs/2]"
+      InheritXIncr	      on
+      XIncr		      "1"
+      XLabel		      "Samples"
+      YUnits		      "dB"
+      YMin		      "-70.2848426195927"
+      YMax		      "23.5700499965559"
+      YLabel		      "Magnitude, dB"
+      LineProperties	      off
+      LineDisables	      "on|on|off|on"
+      LineMarkers	      "|None"
+      LineColors	      "|[1 0 0]"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Spectrum\nScope1"
+      Ports		      [1]
+      Position		      [495, 135, 530, 185]
+      SourceBlock	      "dspsnks4/Spectrum\nScope"
+      SourceType	      "Spectrum Scope"
+      ScopeProperties	      off
+      Domain		      "Frequency"
+      HorizSpan		      "1"
+      UseBuffer		      on
+      BufferSize	      "1024"
+      Overlap		      "0"
+      inpFftLenInherit	      on
+      FFTlength		      "1024"
+      numAvg		      "500"
+      DisplayProperties	      off
+      AxisGrid		      on
+      Memory		      off
+      FrameNumber	      off
+      AxisLegend	      off
+      AxisZoom		      off
+      OpenScopeAtSimStart     on
+      OpenScopeImmediately    off
+      FigPos		      "[232 258 560 420]"
+      AxisProperties	      on
+      XUnits		      "Hertz"
+      XRange		      "[-Fs/2...Fs/2]"
+      InheritXIncr	      on
+      XIncr		      "1"
+      XLabel		      "Samples"
+      YUnits		      "dB"
+      YMin		      "-10"
+      YMax		      "23.5700499965559"
+      YLabel		      "Magnitude, dB"
+      LineProperties	      off
+      LineDisables	      "off|off|on|off"
+      LineMarkers	      "|None"
+      LineColors	      "|[0 0 0]"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Spectrum\nScope2"
+      Ports		      [1]
+      Position		      [435, 35, 470, 85]
+      SourceBlock	      "dspsnks4/Spectrum\nScope"
+      SourceType	      "Spectrum Scope"
+      ScopeProperties	      off
+      Domain		      "Frequency"
+      HorizSpan		      "1"
+      UseBuffer		      on
+      BufferSize	      "1024"
+      Overlap		      "0"
+      inpFftLenInherit	      on
+      FFTlength		      "1024"
+      numAvg		      "500"
+      DisplayProperties	      off
+      AxisGrid		      on
+      Memory		      off
+      FrameNumber	      off
+      AxisLegend	      off
+      AxisZoom		      off
+      OpenScopeAtSimStart     on
+      OpenScopeImmediately    off
+      FigPos		      "[232 258 560 420]"
+      AxisProperties	      on
+      XUnits		      "Hertz"
+      XRange		      "[-Fs/2...Fs/2]"
+      InheritXIncr	      on
+      XIncr		      "1"
+      XLabel		      "Samples"
+      YUnits		      "dB"
+      YMin		      "-10"
+      YMax		      "23.5700499965559"
+      YLabel		      "Magnitude, dB"
+      LineProperties	      off
+      LineDisables	      "off|off|on|off"
+      LineMarkers	      "|None"
+      LineColors	      "|[0 0 0]"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Spectrum\nScope3"
+      Ports		      [1]
+      Position		      [255, 35, 290, 85]
+      SourceBlock	      "dspsnks4/Spectrum\nScope"
+      SourceType	      "Spectrum Scope"
+      ScopeProperties	      off
+      Domain		      "Frequency"
+      HorizSpan		      "1"
+      UseBuffer		      on
+      BufferSize	      "1024"
+      Overlap		      "0"
+      inpFftLenInherit	      on
+      FFTlength		      "1024"
+      numAvg		      "500"
+      DisplayProperties	      off
+      AxisGrid		      on
+      Memory		      off
+      FrameNumber	      off
+      AxisLegend	      off
+      AxisZoom		      off
+      OpenScopeAtSimStart     on
+      OpenScopeImmediately    off
+      FigPos		      "[232 258 560 420]"
+      AxisProperties	      on
+      XUnits		      "Hertz"
+      XRange		      "[-Fs/2...Fs/2]"
+      InheritXIncr	      on
+      XIncr		      "1"
+      XLabel		      "Samples"
+      YUnits		      "dB"
+      YMin		      "-10"
+      YMax		      "23.5700499965559"
+      YLabel		      "Magnitude, dB"
+      LineProperties	      off
+      LineDisables	      "off|off|on|off"
+      LineMarkers	      "|None"
+      LineColors	      "|[0 0 0]"
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Subsystem\nPN Sequence\n"
+      Ports		      [0, 1]
+      Position		      [30, 210, 70, 270]
+      TreatAsAtomicUnit	      off
+      System {
+	Name			"Subsystem\nPN Sequence\n"
+	Location		[0, 0, 527, 115]
+	Open			on
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Reference
+	  Name			  "Bit to Integer\nConverter"
+	  Ports			  [1, 1]
+	  Position		  [180, 28, 260, 72]
+	  FontSize		  10
+	  SourceBlock		  "commutil2/Bit to Integer\nConverter"
+	  SourceType		  "Bit to Integer Converter"
+	  nbits			  "5"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Frame Status\nConversion"
+	  Ports			  [1, 1]
+	  Position		  [115, 32, 165, 68]
+	  SourceBlock		  "dspsigattribs/Frame Status\nConversion"
+	  SourceType		  "Frame Status Conversion"
+	  growRefPort		  off
+	  outframe		  "Sample-based"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "PN Sequence\nGenerator"
+	  Ports			  [0, 1]
+	  Position		  [20, 28, 100, 72]
+	  FontSize		  10
+	  SourceBlock		  "commseqgen2/PN Sequence\nGenerator"
+	  SourceType		  "PN Sequence Generator"
+	  poly			  "[1 0 0 0 0 1 1]"
+	  ini_sta		  "[0 0 0 0 0 1]"
+	  shift			  "0"
+	  Ts			  "1/250"
+	  frameBased		  on
+	  sampPerFrame		  "5"
+	  reset			  off
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Out1"
+	  Position		  [280, 45, 310, 59]
+	}
+	Line {
+	  SrcBlock		  "PN Sequence\nGenerator"
+	  SrcPort		  1
+	  DstBlock		  "Frame Status\nConversion"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Bit to Integer\nConverter"
+	  SrcPort		  1
+	  DstBlock		  "Out1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Frame Status\nConversion"
+	  SrcPort		  1
+	  DstBlock		  "Bit to Integer\nConverter"
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      Sum
+      Name		      "Sum1"
+      Ports		      [2, 1]
+      Position		      [425, 115, 445, 135]
+      ShowName		      off
+      IconShape		      "round"
+      Inputs		      "|++"
+      InputSameDT	      off
+      OutDataTypeMode	      "Inherit via internal rule"
+    }
+    Line {
+      SrcBlock		      "Bernoulli Binary\nGenerator"
+      SrcPort		      1
+      Points		      [5, 0]
+      Branch {
+	DstBlock		"M-FSK\nModulator\nBaseband"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, -85]
+	DstBlock		"Integer Delay"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "M-FSK\nModulator\nBaseband"
+      SrcPort		      1
+      Points		      [5, 0]
+      Branch {
+	DstBlock		"Product\nÃ¯∆µ"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, -55]
+	DstBlock		"Spectrum\nScope3"
+	DstPort			1
+      }
+    }
+    Line {
+      Name		      "Ã¯∆µ‘ÿ≤®"
+      Labels		      [0, 0]
+      SrcBlock		      "M-FSK\nModulator\nBaseband1"
+      SrcPort		      1
+      Points		      [0, -80]
+      DstBlock		      "Product\nÃ¯∆µ"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Subsystem\nPN Sequence\n"
+      SrcPort		      1
+      Points		      [0, 0; 20, 0]
+      Branch {
+	Points			[0, -30]
+	DstBlock		"M-FSK\nModulator\nBaseband1"
+	DstPort			1
+      }
+      Branch {
+	Labels			[1, 0]
+	DstBlock		"M-FSK\nModulator\nBaseband2"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Product\nÃ¯∆µ"
+      SrcPort		      1
+      Points		      [10, 0]
+      Branch {
+	DstBlock		"AWGN\nChannel"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, -65]
+	DstBlock		"Spectrum\nScope2"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Math\nFunction"
+      SrcPort		      1
+      DstBlock		      "Product1\nΩ‚Ã¯"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Product1\nΩ‚Ã¯"
+      SrcPort		      1
+      Points		      [0, 0; 15, 0]
+      Branch {
+	DstBlock		"M-FSK\nDemodulator\nBaseband"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, -35]
+	DstBlock		"Spectrum\nScope"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "M-FSK\nModulator\nBaseband2"
+      SrcPort		      1
+      DstBlock		      "Math\nFunction"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "M-FSK\nDemodulator\nBaseband"
+      SrcPort		      1
+      Points		      [60, 0; 0, -35; -145, 0; 0, -35; -25, 0]
+      Branch {
+	Points			[0, -10]
+	DstBlock		"Error Rate\nCalculation"
+	DstPort			2
+      }
+      Branch {
+	DstBlock		"Scope"
+	DstPort			2
+      }
+    }
+    Line {
+      SrcBlock		      "Error Rate\nCalculation"
+      SrcPort		      1
+      DstBlock		      "Display"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Sine Wave\nµ•∆µ∏…»≈‘¥"
+      SrcPort		      1
+      Points		      [60, 0]
+      DstBlock		      "Sum1"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "AWGN\nChannel"
+      SrcPort		      1
+      DstBlock		      "Sum1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Sum1"
+      SrcPort		      1
+      Points		      [15, 0]
+      Branch {
+	DstBlock		"Product1\nΩ‚Ã¯"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 35]
+	DstBlock		"Spectrum\nScope1"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Integer Delay"
+      SrcPort		      1
+      Points		      [75, 0]
+      Branch {
+	DstBlock		"Error Rate\nCalculation"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 20]
+	DstBlock		"Scope"
+	DstPort			1
+      }
+    }
+    Annotation {
+      Name		      "Ã¯∆µ¿©∆µ¥´ ‰œµÕ≥∑¬’Êƒ£–Õ\nŒƒº˛√˚£∫ch7example28."
+"mdl"
+      Position		      [303, 275]
+      DropShadow	      on
+      FontName		      "Arial"
+      FontSize		      12
+    }
+    Annotation {
+      Name		      "±æµÿÃ¯∆µ‘ÿ≤®\n"
+      Position		      [583, 189]
+    }
+  }
+}
