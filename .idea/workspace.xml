@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7559b5f3-9686-4100-b0b9-11c37b0b3e2f" name="更改" comment="2025/3/21  17:09">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReadMe.md" beforeDir="false" afterPath="$PROJECT_DIR$/ReadMe.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,6 +90,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "DefaultHtmlFileTemplate": "HTML File",
     "Python.1.executor": "Run",
@@ -210,7 +212,7 @@
       <workItem from="1744107057622" duration="2660000" />
       <workItem from="1744111732115" duration="4165000" />
       <workItem from="1744196419153" duration="408000" />
-      <workItem from="1744196840944" duration="1646000" />
+      <workItem from="1744196840944" duration="5369000" />
     </task>
     <task id="LOCAL-00001" summary="2025/3/20 21:09">
       <option name="closed" value="true" />
@@ -388,7 +390,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744198181079</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="2025/3/21  17:09">
+      <option name="closed" value="true" />
+      <created>1744198729967</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1744198729967</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
