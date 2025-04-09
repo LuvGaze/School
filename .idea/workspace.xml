@@ -5,49 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7559b5f3-9686-4100-b0b9-11c37b0b3e2f" name="更改" comment="2025/3/21  17:09">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Picture/000.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Picture/000.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Picture/001.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Picture/002.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Picture/003.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Picture/004.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Picture/005.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Picture/006.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Picture/007.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Picture/008.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Picture/009.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Picture/010.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Picture/011.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Picture/012.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Picture/013.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Picture/014.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Picture/015.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Picture/016.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Picture/017.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Picture/018.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Picture/019.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Picture/20.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Picture/21.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Picture/22.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Picture/23.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Picture/24.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Picture/25.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Picture/26.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Picture/27.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Picture/28.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Picture/29.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Picture/30.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Picture/31.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Picture/32.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Picture/三团01.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Picture/三团02.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Picture/三团03.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/测试代码/1.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/测试代码/2.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReadMe.md" beforeDir="false" afterPath="$PROJECT_DIR$/ReadMe.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -252,7 +210,7 @@
       <workItem from="1744107057622" duration="2660000" />
       <workItem from="1744111732115" duration="4165000" />
       <workItem from="1744196419153" duration="408000" />
-      <workItem from="1744196840944" duration="1267000" />
+      <workItem from="1744196840944" duration="1646000" />
     </task>
     <task id="LOCAL-00001" summary="2025/3/20 21:09">
       <option name="closed" value="true" />
@@ -422,7 +380,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744119753930</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="2025/3/21  17:09">
+      <option name="closed" value="true" />
+      <created>1744198181079</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1744198181079</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
