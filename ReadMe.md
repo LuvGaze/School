@@ -18,7 +18,7 @@
 ### 安装步骤
 1. 克隆项目到本地
    ```bash
-   git clone [项目地址]
+   git clone -b 数字图像处理 https://github.com/LuvGaze/School.git
    ```
 
 2. 安装依赖
