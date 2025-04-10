@@ -18,7 +18,7 @@ pillow==11.1.0
 pyparsing==3.2.3
 python-dateutil==2.9.0.post0
 PyWavelets==1.6.0
-scikit-image==0.24.0
+scikit-image==0.18.3
 scipy==1.13.1
 six==1.17.0
 tifffile==2024.8.30

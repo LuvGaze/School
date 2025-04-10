@@ -2,12 +2,21 @@ import matplotlib.pyplot as plt
 from skimage import data
 from skimage.feature import graycomatrix, graycoprops
 
-# 设置中文字体
-plt.rcParams['font.sans-serif'] = ['FangSong']
-plt.rcParams['axes.unicode_minus'] = False
+
+"""
+中文显示工具函数
+"""
+
+
+def set_ch():
+    from pylab import mpl
+    mpl.rcParams['font.sans-serif'] = ['FangSong']
+    mpl.rcParams['axes.unicode_minus'] = False
+
+
+set_ch()
 
 PATCH_SIZE = 21
-
 # 载入相机图像
 image = data.camera()
 
@@ -32,7 +41,6 @@ for patch in (grass_patches + sky_patches):
     glcm = graycomatrix(patch, distances=[5], angles=[0], levels=256, symmetric=True, normed=True)
     xs.append(graycoprops(glcm, 'dissimilarity')[0, 0])
     ys.append(graycoprops(glcm, 'correlation')[0, 0])
-
 # 创建绘图
 fig = plt.figure(figsize=(8, 8))
 
@@ -49,10 +57,12 @@ ax.set_xticks([])
 ax.set_yticks([])
 ax.axis('image')
 
-# 对于每个块，plot(dissimilarity, correlation)
+# 对于每个块，plot (dissimilarity, correlation)
 ax = fig.add_subplot(3, 2, 2)
-ax.plot(xs[:len(grass_patches)], ys[:len(grass_patches)], 'go', label='Grass')
-ax.plot(xs[len(grass_patches):], ys[len(grass_patches):], 'bo', label='Sky')
+ax.plot(xs[:len(grass_patches)], ys[:len(grass_patches)], 'go',
+        label='Grass')
+ax.plot(xs[len(grass_patches):], ys[len(grass_patches):], 'bo',
+        label='Sky')
 ax.set_xlabel('灰度共生矩阵相似性')
 ax.set_ylabel('灰度共生矩阵相关度')
 ax.legend()
@@ -62,9 +72,13 @@ for i, patch in enumerate(grass_patches):
     ax = fig.add_subplot(3, len(grass_patches), len(grass_patches) * 1 + i + 1)
     ax.imshow(patch, cmap=plt.cm.gray, interpolation='nearest',
               vmin=0, vmax=255)
-    ax.set_xlabel(ax.set_xlabel('Sky %d' % (i + 1)))
-    ax.set_xticks([])
-    ax.set_yticks([])
+    ax.set_xlabel('Grass %d' % (i + 1))
 
-plt.tight_layout()
+for i, patch in enumerate(sky_patches):
+    ax = fig.add_subplot(3, len(sky_patches), len(sky_patches) * 2 + i + 1)
+    ax.imshow(patch, cmap=plt.cm.gray, interpolation='nearest',
+              vmin=0, vmax=255)
+    ax.set_xlabel('Sky %d' % (i + 1))
+
+# 展示图像块，并显示
 plt.show()
