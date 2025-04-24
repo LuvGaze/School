@@ -1,4 +1,4 @@
-# School仓库每次更新后自动推送至Gitee
+# School仓库每次更新后自动推送至 Gitee
 
 #!/bin/bash
 
