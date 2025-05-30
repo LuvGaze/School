@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="065d59d2-a34c-4222-8fc8-63a7e3253601" name="更改" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="KotlinCodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2jRlX3c7PPAxGvFxKJXR97QlWEq" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/Desktop/前端/404视差动画页面模板/404视差动画页面模板",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "问题",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
+    "vue.rearranger.settings.migration": "true",
+    "应用程序.D.executor": "Run",
+    "应用程序.Demo10.executor": "Run",
+    "应用程序.Demo11.executor": "Run",
+    "应用程序.Demo12.executor": "Run",
+    "应用程序.Demo13.executor": "Run",
+    "应用程序.Demo14.executor": "Run",
+    "应用程序.Demo15.executor": "Run",
+    "应用程序.Demo16.executor": "Run",
+    "应用程序.Demo17.executor": "Run",
+    "应用程序.Demo18.executor": "Run",
+    "应用程序.Demo19.executor": "Run",
+    "应用程序.Demo2.executor": "Run",
+    "应用程序.Demo20.executor": "Run",
+    "应用程序.Demo21.executor": "Run",
+    "应用程序.Demo22.executor": "Run",
+    "应用程序.Demo23.executor": "Run",
+    "应用程序.Demo23Wrong.executor": "Run",
+    "应用程序.Demo24.executor": "Run",
+    "应用程序.Demo25.executor": "Run",
+    "应用程序.Demo3.executor": "Run",
+    "应用程序.Demo4.executor": "Run",
+    "应用程序.Demo5.executor": "Run",
+    "应用程序.Demo6.executor": "Run",
+    "应用程序.Demo7.executor": "Run",
+    "应用程序.Demo8.executor": "Run",
+    "应用程序.Demo9.executor": "Run",
+    "应用程序.Main.executor": "Run",
+    "应用程序.demo1.executor": "Run"
+  }
+}]]></component>
+  <component name="QodanaReportsService">
+    <option name="descriptions">
+      <ReportDescription localRun="true" path="C:\Users\27734\AppData\Local\Temp\qodana_output\qodana.sarif.json" reportGuid="a23575bd-3d94-4ac9-b69a-3850d89a4b0c" reportId="Test/qodana/2024-07-19" />
+    </option>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="065d59d2-a34c-4222-8fc8-63a7e3253601" name="更改" comment="" />
+      <created>1721357806705</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1721357806705</updated>
+      <workItem from="1721357807729" duration="9141000" />
+      <workItem from="1721369318936" duration="2907000" />
+      <workItem from="1721382986677" duration="214000" />
+      <workItem from="1723468845204" duration="2986000" />
+      <workItem from="1723471953689" duration="1082000" />
+      <workItem from="1723473053256" duration="2177000" />
+      <workItem from="1731333511161" duration="416000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.ClassNotFoundException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
