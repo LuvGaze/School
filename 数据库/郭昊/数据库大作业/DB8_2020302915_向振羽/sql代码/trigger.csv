@@ -1,0 +1,19 @@
+Trigger,Event,Table,Statement,Timing,Created,sql_mode,Definer,character_set_client,collation_connection,"Database Collation"
+add_s_lock,INSERT,student_k,"begin 
+	set @id = new.id;
+    insert stu_login_k value(@id,'123456');
+end",AFTER,"2022-11-18 23:21:27.67","ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION",root@localhost,utf8mb4,utf8mb4_0900_ai_ci,utf8_general_ci
+del_s_lock,DELETE,student_k,"begin 
+	set @id = old.id;
+    delete from stu_login_k where stu_id = @id;
+end",AFTER,"2022-11-18 23:14:38.89","ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION",root@localhost,utf8mb4,utf8mb4_0900_ai_ci,utf8_general_ci
+insert_s,INSERT,t_course,"BEGIN
+    IF NEW.SNO NOT IN (SELECT DISTINCT(id) FROM student_k)
+        THEN SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = '不能插入S表没有的数据';
+    END IF;
+    IF NEW.COURSE NOT IN (SELECT DISTINCT(cno) FROM course)
+        THEN SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = '不能插入C表没有的数据';
+    END IF;
+END",BEFORE,"2022-11-18 17:23:24.12","ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION",root@localhost,utf8mb4,utf8mb4_0900_ai_ci,utf8_general_ci

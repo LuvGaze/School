@@ -1,0 +1,2 @@
+ALTER TABLE students
+ADD COLUMN student_number VARCHAR(20) UNIQUE NOT NULL;
