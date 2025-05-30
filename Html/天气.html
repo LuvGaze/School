@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天气查询</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <h1>天气查询</h1>
+    <div id="weather">
+        <p>城市: <span id="city">加载中...</span></p>
+        <p>日期: <span id="date">加载中...</span></p>
+        <p>天气: <span id="temp">加载中...</span></p>
+        <p>最高温度: <span id="high">加载中...</span></p>
+        <p>最低温度: <span id="low">加载中...</span></p>
+        <p>降水量: <span id="rainfall">加载中...</span></p>
+        <p>湿度: <span id="humidity">加载中...</span></p>
+        <p>风力: <span id="wind_scale">加载中...</span></p>
+        <p>最后更新时间: <span id="last_update">加载中...</span></p>
+    </div>
+
+    <script>
+        async function getWeather() {
+            try {
+                const url = 'https://api.xfyun.club/weather/' // 天气接口
+                const response = await axios.get(url)
+                const { code, data } = response.data
+                if (code !== 200) {
+                    document.getElementById('city').innerText = '获取失败!'
+                    document.getElementById('date').innerText = '加载中...'
+                    document.getElementById('temp').innerText = '加载中...'
+                    document.getElementById('high').innerText = '加载中...'
+                    document.getElementById('low').innerText = '加载中...'
+                    document.getElementById('rainfall').innerText = '加载中...'
+                    document.getElementById('humidity').innerText = '加载中...'
+                    document.getElementById('wind_scale').innerText = '加载中...'
+                    document.getElementById('last_update').innerText = '加载中...'
+                    return
+                }
+                const { city, weather, last_update } = data
+                const weatherData = weather[0]
+                document.getElementById('city').innerText = city
+                document.getElementById('date').innerText = weatherData.date
+                document.getElementById('temp').innerText = weatherData.temp
+                document.getElementById('high').innerText = weatherData.high
+                document.getElementById('low').innerText = weatherData.low
+                document.getElementById('rainfall').innerText = weatherData.rainfall
+                document.getElementById('humidity').innerText = weatherData.humidity
+                document.getElementById('wind_scale').innerText = weatherData.wind_scale
+                document.getElementById('last_update').innerText = last_update
+            } catch (error) {
+                document.getElementById('city').innerText = '接口异常!'
+                document.getElementById('date').innerText = '加载中...'
+                document.getElementById('temp').innerText = '加载中...'
+                document.getElementById('high').innerText = '加载中...'
+                document.getElementById('low').innerText = '加载中...'
+                document.getElementById('rainfall').innerText = '加载中...'
+                document.getElementById('humidity').innerText = '加载中...'
+                document.getElementById('wind_scale').innerText = '加载中...'
+                document.getElementById('last_update').innerText = '加载中...'
+            }
+        }
+
+        // 页面加载完成后调用 getWeather 函数
+        window.onload = function() {
+            getWeather()
+        }
+    </script>
+</body>
+</html>
