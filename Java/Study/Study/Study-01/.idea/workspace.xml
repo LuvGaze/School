@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1f4746a3-2dd3-4e72-99f9-d5e535fefb7d" name="更改" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://C:/Program Files/Java/jdk-1.8/src.zip!/java/lang/Object.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://C:/Program Files/Java/jdk-1.8/src.zip!/java/lang/Runtime.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2iYUvszEII3L8mjkGfjbBRKomg0" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Application.Test.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Test2.executor&quot;: &quot;Run&quot;,
+    &quot;Application.demo1.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Desktop/Java_Files/　Study/Study/Study&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;项目&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;,
+    &quot;应用程序.LoginDemo.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.Test.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.Test1.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.Test2.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.demo1.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.demo2.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.extends_contructor.Test.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.extends_override.Test.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.point.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.stu.executor&quot;: &quot;Run&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Extends.Test" />
+      <module name="stu" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Extends.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="1f4746a3-2dd3-4e72-99f9-d5e535fefb7d" name="更改" comment="" />
+      <created>1719667238144</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1719667238144</updated>
+      <workItem from="1719667239164" duration="1955000" />
+      <workItem from="1719734301687" duration="744000" />
+      <workItem from="1719838125314" duration="1162000" />
+      <workItem from="1719900813168" duration="61000" />
+      <workItem from="1721216197983" duration="540000" />
+      <workItem from="1721216751145" duration="39000" />
+      <workItem from="1721216910265" duration="1514000" />
+      <workItem from="1721218447721" duration="1795000" />
+      <workItem from="1721220269156" duration="3728000" />
+      <workItem from="1721276373066" duration="24000" />
+      <workItem from="1721277913354" duration="3952000" />
+      <workItem from="1721295679184" duration="4978000" />
+      <workItem from="1721300985258" duration="2474000" />
+      <workItem from="1721357735393" duration="71000" />
+      <workItem from="1721383204200" duration="1762000" />
+      <workItem from="1721463140859" duration="383000" />
+      <workItem from="1721463534412" duration="432000" />
+      <workItem from="1721708017526" duration="6051000" />
+      <workItem from="1725093659349" duration="37000" />
+      <workItem from="1725093714197" duration="70000" />
+      <workItem from="1725095015956" duration="59000" />
+      <workItem from="1725096920702" duration="6000" />
+      <workItem from="1725096971667" duration="667000" />
+      <workItem from="1725097649505" duration="18000" />
+      <workItem from="1725098218570" duration="14000" />
+      <workItem from="1725098248924" duration="7000" />
+      <workItem from="1725099553883" duration="138000" />
+      <workItem from="1725099698814" duration="60000" />
+      <workItem from="1725099776165" duration="940000" />
+      <workItem from="1725101171804" duration="67000" />
+      <workItem from="1725183479541" duration="123000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

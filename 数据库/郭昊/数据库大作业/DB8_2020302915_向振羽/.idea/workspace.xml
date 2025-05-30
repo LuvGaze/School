@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="83bdf871-2016-42d7-a8f8-b008d56e8497" name="更改" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="2oyn8NMzCz0vNh203sffSFqR7Y1" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.BIGhomework.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true",
+    "数据库脚本.student2_admin_login_k.sql.executor": "Run",
+    "数据库脚本.student2_course.sql.executor": "Run",
+    "数据库脚本.student2_routines.sql.executor": "Run",
+    "数据库脚本.student2_stu_login_k.sql.executor": "Run",
+    "数据库脚本.student2_student_k.sql.executor": "Run",
+    "数据库脚本.student2_t_course.sql.executor": "Run",
+    "数据库脚本.student2_t_st.sql.executor": "Run"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ],
+    "RunConfigurationTargetLRU": [
+      "b3c83aa4-d02b-4c90-aa64-b60b87a02af8"
+    ]
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="student2_admin_login_k.sql" type="DatabaseScript" editBeforeRun="true" nameIsGenerated="true">
+      <script-file value="$PROJECT_DIR$/sql代码/student2_admin_login_k.sql" />
+      <script-mode>FILE</script-mode>
+      <data-source id="b3c83aa4-d02b-4c90-aa64-b60b87a02af8" />
+      <method v="2" />
+    </configuration>
+    <configuration name="student2_course.sql" type="DatabaseScript" editBeforeRun="true" nameIsGenerated="true">
+      <script-file value="$PROJECT_DIR$/sql代码/student2_course.sql" />
+      <script-mode>FILE</script-mode>
+      <data-source id="b3c83aa4-d02b-4c90-aa64-b60b87a02af8" />
+      <method v="2" />
+    </configuration>
+    <configuration name="student2_routines.sql" type="DatabaseScript" editBeforeRun="true" nameIsGenerated="true">
+      <script-file value="$PROJECT_DIR$/sql代码/student2_routines.sql" />
+      <script-mode>FILE</script-mode>
+      <data-source id="b3c83aa4-d02b-4c90-aa64-b60b87a02af8" />
+      <method v="2" />
+    </configuration>
+    <configuration name="student2_stu_login_k.sql" type="DatabaseScript" editBeforeRun="true" nameIsGenerated="true">
+      <script-file value="$PROJECT_DIR$/sql代码/student2_stu_login_k.sql" />
+      <script-mode>FILE</script-mode>
+      <data-source id="b3c83aa4-d02b-4c90-aa64-b60b87a02af8" />
+      <method v="2" />
+    </configuration>
+    <configuration name="student2_student_k.sql" type="DatabaseScript" editBeforeRun="true" nameIsGenerated="true">
+      <script-file value="$PROJECT_DIR$/sql代码/student2_student_k.sql" />
+      <script-mode>FILE</script-mode>
+      <data-source id="b3c83aa4-d02b-4c90-aa64-b60b87a02af8" />
+      <method v="2" />
+    </configuration>
+    <configuration name="student2_t_course.sql" type="DatabaseScript" editBeforeRun="true" nameIsGenerated="true">
+      <script-file value="$PROJECT_DIR$/sql代码/student2_t_course.sql" />
+      <script-mode>FILE</script-mode>
+      <data-source id="b3c83aa4-d02b-4c90-aa64-b60b87a02af8" />
+      <method v="2" />
+    </configuration>
+    <configuration name="student2_t_st.sql" type="DatabaseScript" editBeforeRun="true" nameIsGenerated="true">
+      <script-file value="$PROJECT_DIR$/sql代码/student2_t_st.sql" />
+      <script-mode>FILE</script-mode>
+      <data-source id="b3c83aa4-d02b-4c90-aa64-b60b87a02af8" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-PY-242.21829.153" />
+        <option value="bundled-python-sdk-464836ebc622-b74155a9e76b-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.21829.153" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="83bdf871-2016-42d7-a8f8-b008d56e8497" name="更改" comment="" />
+      <created>1731850524868</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1731850524868</updated>
+      <workItem from="1731850526297" duration="1311000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/DB8_2020302915_$BIGhomework.coverage" NAME="BIGhomework 覆盖结果" MODIFIED="1731851398164" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/运行代码" />
+  </component>
+</project>
