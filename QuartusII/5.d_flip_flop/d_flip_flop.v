@@ -1,0 +1,35 @@
+module d_flip_flop(
+	input  wire clk  ,			//时钟信号，频率为50Hz
+	input  wire rst_n,			//复位信号，低电平有效
+	input  wire D    ,			//输入信号
+	output reg  Q     			//输出信号
+ 
+);
+
+//同步复位
+/*
+	always @ (posedge clk) begin
+		if (rst_n == 0)			
+			Q <= 0;
+		else
+			Q <= D;
+			
+	end
+	*/
+	
+//异步复位
+
+	always @ (posedge clk or negedge rst_n) begin
+		if (rst_n == 0)			
+			Q <= 0;
+		else
+			Q <= D;
+			
+	end
+
+
+endmodule
+
+
+
+

@@ -1,0 +1,7 @@
+|led
+out[0] <= <VCC>
+out[1] <= <GND>
+out[2] <= <VCC>
+out[3] <= <GND>
+
+

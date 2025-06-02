@@ -1,0 +1,20 @@
+module select(
+	input  wire in1;			//一路输出
+	input  wire in2;			//二路输出
+	input  wire sel;			//选择信号
+	output wire out;			//输出信号。有选择信号决定哪一路输出
+
+);
+	//三目运算
+	// == 比较赋值
+	
+	assign out = (sel == 0) ? in1:in2;  //是否符合括号内值，符合选择1，不符合选择2
+	
+
+
+
+endmodule
+
+
+
+

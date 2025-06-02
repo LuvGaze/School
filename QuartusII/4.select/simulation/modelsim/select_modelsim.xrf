@@ -1,0 +1,14 @@
+vendor_name = ModelSim
+source_file = 1, D:/Desktop/FPGA/QuartusII/4.select/select.v
+source_file = 1, D:/Desktop/FPGA/QuartusII/4.select/select_tb.v
+source_file = 1, D:/Desktop/FPGA/QuartusII/4.select/db/select.cbx.xml
+design_name = select
+instance = comp, \out~output , out~output, select, 1
+instance = comp, \sel[1]~input , sel[1]~input, select, 1
+instance = comp, \in1~input , in1~input, select, 1
+instance = comp, \in2~input , in2~input, select, 1
+instance = comp, \sel[0]~input , sel[0]~input, select, 1
+instance = comp, \Mux0~0 , Mux0~0, select, 1
+instance = comp, \in3~input , in3~input, select, 1
+instance = comp, \in4~input , in4~input, select, 1
+instance = comp, \Mux0~1 , Mux0~1, select, 1

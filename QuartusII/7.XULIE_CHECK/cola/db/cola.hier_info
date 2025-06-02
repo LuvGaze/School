@@ -1,0 +1,44 @@
+|cola
+clk => out_m[0]~reg0.CLK
+clk => out_m[1]~reg0.CLK
+clk => out_m[2]~reg0.CLK
+clk => out_m[3]~reg0.CLK
+clk => out_m[4]~reg0.CLK
+clk => out_cola~reg0.CLK
+clk => state~1.DATAIN
+rst_n => out_m[0]~reg0.ACLR
+rst_n => out_m[1]~reg0.ACLR
+rst_n => out_m[2]~reg0.ACLR
+rst_n => out_m[3]~reg0.ACLR
+rst_n => out_m[4]~reg0.ACLR
+rst_n => out_cola~reg0.ACLR
+rst_n => state~3.DATAIN
+in_m[0] => Equal0.IN1
+in_m[0] => Equal1.IN0
+in_m[1] => Equal0.IN0
+in_m[1] => Equal1.IN1
+give_up => state.OUTPUTSELECT
+give_up => state.OUTPUTSELECT
+give_up => state.OUTPUTSELECT
+give_up => state.OUTPUTSELECT
+give_up => state.OUTPUTSELECT
+give_up => out_cola.OUTPUTSELECT
+give_up => out_cola.OUTPUTSELECT
+give_up => out_m.OUTPUTSELECT
+give_up => Selector0.IN3
+give_up => Selector0.IN4
+give_up => Selector0.IN5
+give_up => Selector0.IN6
+give_up => Selector10.IN3
+give_up => Selector10.IN4
+give_up => Selector10.IN5
+give_up => Selector8.IN1
+give_up => Selector9.IN1
+out_cola <= out_cola~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out_m[0] <= out_m[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out_m[1] <= out_m[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out_m[2] <= out_m[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out_m[3] <= out_m[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out_m[4] <= out_m[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

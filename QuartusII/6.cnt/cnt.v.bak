@@ -1,0 +1,21 @@
+module cnt (
+	input  wire clk  ,			//时钟信号，50MHz
+	input  wire rst_n,			//复位信号，低电平有效
+	output wire out				//输出信号
+);
+	reg [7:0]cnt;				//是西安0-10循环计数
+	
+	always @(posedge clk or negedge rst_n)begin
+		if (~rst_n)				//if括号内只填一个变量，则默认变量为1， ~rst_n 等价于rst_n == 0
+			cnt <= 8'd0;
+		else if (cnt == 8'd10)
+			cnt <=8'd0;
+		else
+			cnt <= cnt+8'd1;
+		
+		//使用组合逻辑电路描述，使用assign描述输出
+		
+		assign out = (cnt >= 8'd4 && cnt <= 8'd06) ? 1:0;
+		
+
+endmodule

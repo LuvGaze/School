@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Tue May 27 17:30:57 2025
+Quartus II 64-Bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version
+Revision Name : top
+Top-level Entity Name : top
+Family : Cyclone IV E
+Total logic elements : 27
+    Total combinational functions : 27
+    Dedicated logic registers : 0
+Total registers : 0
+Total pins : 94
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 3
+Total PLLs : 0

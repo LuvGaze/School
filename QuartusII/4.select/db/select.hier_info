@@ -1,0 +1,10 @@
+|select
+in1 => Mux0.IN0
+in2 => Mux0.IN1
+in3 => Mux0.IN2
+in4 => Mux0.IN3
+sel[0] => Mux0.IN5
+sel[1] => Mux0.IN4
+out <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+

@@ -1,0 +1,62 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dF:/FPGA_project/shixun/XULIE_CHECK/simulation/modelsim
+T_opt
+!s110 1748570635
+VNVl5P?`c_ofYlBT^2[6La3
+04 14 4 work XULIE_CHECK_tb fast 0
+=1-9c2dcd0a017a-6839120b-94-5114
+o-quiet -auto_acc_if_foreign -work work -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneiv_hssi_ver -L cycloneiv_pcie_hip_ver -L cycloneiv_ver -L rtl_work -L work +acc
+n@_opt
+OL;O;10.4;61
+vXULIE_CHECK
+Z1 !s110 1748570634
+!i10b 1
+!s100 ]`<ooYEm>S6:hV8clNDT30
+I;hIGeV^D]QVLEhjS`1bfW0
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1748570361
+8F:/FPGA_project/shixun/XULIE_CHECK/XULIE_CHECK.v
+FF:/FPGA_project/shixun/XULIE_CHECK/XULIE_CHECK.v
+L0 1
+Z3 OL;L;10.4;61
+r1
+!s85 0
+31
+!s108 1748570634.902000
+!s107 F:/FPGA_project/shixun/XULIE_CHECK/XULIE_CHECK.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+F:/FPGA_project/shixun/XULIE_CHECK|F:/FPGA_project/shixun/XULIE_CHECK/XULIE_CHECK.v|
+!i113 0
+Z4 o-vlog01compat -work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z5 !s92 -vlog01compat -work work +incdir+F:/FPGA_project/shixun/XULIE_CHECK -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+n@x@u@l@i@e_@c@h@e@c@k
+vXULIE_CHECK_tb
+R1
+!i10b 1
+!s100 iWmC=SKmKmYO9j4I@1KmZ2
+I^nR2XXi2nD20SRDg;3nA:2
+R2
+R0
+w1748570620
+8F:/FPGA_project/shixun/XULIE_CHECK/XULIE_CHECK_tb.v
+FF:/FPGA_project/shixun/XULIE_CHECK/XULIE_CHECK_tb.v
+L0 4
+R3
+r1
+!s85 0
+31
+!s108 1748570634.941000
+!s107 F:/FPGA_project/shixun/XULIE_CHECK/XULIE_CHECK_tb.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+F:/FPGA_project/shixun/XULIE_CHECK|F:/FPGA_project/shixun/XULIE_CHECK/XULIE_CHECK_tb.v|
+!i113 0
+R4
+R5
+n@x@u@l@i@e_@c@h@e@c@k_tb

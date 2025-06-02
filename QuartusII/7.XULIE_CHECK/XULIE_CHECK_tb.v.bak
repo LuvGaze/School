@@ -1,0 +1,32 @@
+`timescale 1ns/1ps
+
+module XULIE_CHECK_tb();
+
+	reg clk;
+	reg rst_n;
+	reg date_in;
+	wire find_ok
+	
+	
+	initial begin
+		clk = 0;
+		rst_n = 0;
+		#200
+		rst_n = 1;
+	
+	end
+	
+	always #10 clk = ~clk;
+	
+	always #20 data_in {$random} %2;			//产生随机连续数据流
+	
+	XULIE_CHECK XULIE_CHECK(
+		.clk    (clk),	
+		.rst_n  (rst_n),	
+		.data_in(date_in),
+		.find_ok(find_ok)
+
+);
+
+
+endmodule

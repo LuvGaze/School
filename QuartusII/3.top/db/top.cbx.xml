@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="top">
+		<CBX_INST_ENTRY INSTANCE_NAME="|top|mul:mul|lpm_mult:Mult0" CBX_FILE_NAME="mult_eat.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|top|mul_extend:mul_extend|lpm_mult:Mult1" CBX_FILE_NAME="mult_ubt.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

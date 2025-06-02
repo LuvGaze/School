@@ -1,0 +1,26 @@
+`timescale 1ms/1ps
+module not_gate_tb ();
+
+	reg in;
+	wire out;
+	
+	initial begin
+		in = 0;
+		#200
+		in = 1;
+		#200
+		in = 1;
+		#200
+		in = 0;
+		#200
+		$stop;
+	end
+	
+	//	模块调用 例化
+	test test_1(
+
+	.in(in),
+	.out(out)
+);
+
+endmodule

@@ -1,0 +1,8 @@
+vendor_name = ModelSim
+source_file = 1, D:/Desktop/FPGA/QuartusII/2.led/led.v
+source_file = 1, D:/Desktop/FPGA/QuartusII/2.led/db/led.cbx.xml
+design_name = led
+instance = comp, \out[0]~output , out[0]~output, led, 1
+instance = comp, \out[1]~output , out[1]~output, led, 1
+instance = comp, \out[2]~output , out[2]~output, led, 1
+instance = comp, \out[3]~output , out[3]~output, led, 1

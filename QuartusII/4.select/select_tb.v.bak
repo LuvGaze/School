@@ -1,0 +1,30 @@
+·timescale 1ns/1ps
+
+module select_tb();
+	reg in1;
+	reg in2;
+	reg sel;
+	wire out;
+	
+	initial begin
+		in1 = 0;
+		en2 = 1;
+		sel = 0;
+	end
+	//生成随机数 ($random) %n 生成随机数的范围是0~n-1
+	
+	always #20 sel = ($random) %2;		//每隔20ns生成一个随机数
+	
+	select select(
+		.in1(in1);
+		.in2(in2);
+		.sel(sel);
+		.out(out);
+
+	);
+	
+endmodule
+
+
+
+
