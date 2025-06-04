@@ -6,7 +6,7 @@
 
 ---
 
-# 点击获取[下载帮助](Help.md) 💬
+# 点击获取[下载帮助](https://github.com/LuvGaze/Notes/blob/dcdff4e4fc3bfefd284af414bcd7c9fcea62e4b6/Git-Help/%E4%B8%8B%E8%BD%BD%E5%B8%AE%E5%8A%A9%20Help-DownLoad.md) 💬
 
 ---
 
