@@ -1,0 +1,16 @@
+Fitter Status : Successful - Wed Jun 04 09:10:38 2025
+Quartus II 64-Bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version
+Revision Name : uart_rx
+Top-level Entity Name : uart_rx
+Family : Cyclone IV E
+Device : EP4CE6E22C6
+Timing Models : Final
+Total logic elements : 52 / 6,272 ( < 1 % )
+    Total combinational functions : 34 / 6,272 ( < 1 % )
+    Dedicated logic registers : 41 / 6,272 ( < 1 % )
+Total registers : 41
+Total pins : 12 / 92 ( 13 % )
+Total virtual pins : 0
+Total memory bits : 0 / 276,480 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 30 ( 0 % )
+Total PLLs : 0 / 2 ( 0 % )

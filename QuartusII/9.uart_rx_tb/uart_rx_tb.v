@@ -1,0 +1,125 @@
+
+	`timescale 1ns/1ps
+
+	module uart_rx_tb();
+
+	
+	reg sys_clk;
+	reg sys_rst_n;
+	
+
+	initial begin 
+		sys_clk = 1'b0;
+		sys_rst_n = 1'b0;
+		#400
+		sys_rst_n = 1'b1;
+	
+	end 
+
+	always #10 sys_clk = ~sys_clk;
+	
+	
+	
+
+	/////from read datas to my mem
+	reg [7:0] a_mem[15:0];
+	reg data_in;
+	
+	initial begin 
+	//follow this lujing to modify your lujing 
+		$readmemh("D:/Desktop/Github/School/QuartusII/9.uart_rx_tb/uart_sim_data_source.txt",a_mem);
+	end 
+	
+	initial begin
+		data_in <= 1;
+		#1000;
+		top_2();
+	end 
+	
+	task	top_1(
+		input	[7:0]top
+		);
+		integer	i;
+		for(i=0;i<10;i=i+1)
+			begin
+				case(i)
+					0:	data_in <= 0;
+					1:	data_in <= top[0];
+					2:	data_in <= top[1];
+					3:	data_in <= top[2];
+					4:	data_in <= top[3];
+					5:	data_in <= top[4];
+					6:	data_in <= top[5];	
+					7:	data_in <= top[6];
+					8:	data_in <= top[7];	
+					9:	data_in <= 1;
+				default:data_in <= 1;
+				endcase
+				#(5208*20);  //每次发送1位数据延时时钟周期个数乘以时钟周期      
+			end               
+		endtask	
+
+		//相当于例化，将j赋值给task top_1里面的8位top
+		task	top_2();
+		integer	j;
+		for(j=0;j<274;j=j+1)
+			top_1(a_mem[j]);	
+		endtask
+
+			
+	
+	
+
+
+wire [7:0]po_data;
+wire po_flag;
+
+	uart_rx 
+	#(
+		 . UART_BPS(9600) ,  
+		 .  CLK_FREQ(50_000_000)  
+	)
+	uart_rx
+	(
+		. sys_clk(sys_clk)     ,   //系统时钟50MHz
+		. sys_rst_n(sys_rst_n)   ,   //全局复位
+		. rx(data_in)          ,   //串口接收数据
+
+		. po_data(po_data)     ,   //串转并后的8bit数据
+		. po_flag(po_flag)         //串转并后的数据有效标志信号
+	);
+
+
+
+
+
+
+
+	endmodule 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
