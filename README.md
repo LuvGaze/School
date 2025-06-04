@@ -21,4 +21,4 @@
 
 ---
 
-![加载图片](https://github.com/LuvGaze/School/blob/main/Picture.jpg)
+![加载图片](/Picture.jpg)
