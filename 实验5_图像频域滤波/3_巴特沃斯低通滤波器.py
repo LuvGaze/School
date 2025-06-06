@@ -55,7 +55,7 @@ def butterworthPassFilter(image, d, n):
 
 plt.subplot(221)
 plt.axis("off")
-plt.title('Original')
+plt.title('原始图像')
 plt.imshow(img, cmap='gray')
 
 plt.subplot(222)
