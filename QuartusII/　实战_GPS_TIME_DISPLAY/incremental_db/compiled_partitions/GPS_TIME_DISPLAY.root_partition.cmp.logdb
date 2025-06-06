@@ -1,0 +1,4 @@
+v1
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,GPRMC_decode:GPRMC_decode_inst|lpm_mult:Mult0|mult_lgt:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,GPRMC_decode:GPRMC_decode_inst|lpm_mult:Mult0|mult_lgt:auto_generated|mac_out4,
+PORT_SWAPPING,PORT_SWAP_TYPE_DSPMULT,GPRMC_decode:GPRMC_decode_inst|lpm_mult:Mult0|mult_lgt:auto_generated|mac_mult3,

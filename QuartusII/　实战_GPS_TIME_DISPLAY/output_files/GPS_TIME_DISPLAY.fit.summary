@@ -1,0 +1,16 @@
+Fitter Status : Successful - Thu Jun 05 15:48:30 2025
+Quartus II 64-Bit Version : 15.0.0 Build 145 04/22/2015 SJ Full Version
+Revision Name : GPS_TIME_DISPLAY
+Top-level Entity Name : top_level
+Family : Cyclone IV E
+Device : EP4CE6E22C8
+Timing Models : Final
+Total logic elements : 617 / 6,272 ( 10 % )
+    Total combinational functions : 496 / 6,272 ( 8 % )
+    Dedicated logic registers : 423 / 6,272 ( 7 % )
+Total registers : 423
+Total pins : 7 / 92 ( 8 % )
+Total virtual pins : 0
+Total memory bits : 0 / 276,480 ( 0 % )
+Embedded Multiplier 9-bit elements : 4 / 30 ( 13 % )
+Total PLLs : 0 / 2 ( 0 % )
